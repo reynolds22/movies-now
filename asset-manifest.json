@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/movies-now/static/css/main.a89bdd11.css",
-    "main.js": "/movies-now/static/js/main.e089c80e.js",
+    "main.css": "/movies-now/static/css/main.9580c4d2.css",
+    "main.js": "/movies-now/static/js/main.d24f8ba2.js",
     "static/js/453.3a29457c.chunk.js": "/movies-now/static/js/453.3a29457c.chunk.js",
+    "static/media/older.jpeg": "/movies-now/static/media/older.3746212e589231e397c2.jpeg",
+    "static/media/Best-Movie.jpg": "/movies-now/static/media/Best-Movie.10974783e6847e613301.jpg",
+    "static/media/animated.jpg": "/movies-now/static/media/animated.f59870e647f36d77f1b5.jpg",
+    "static/media/new.webp": "/movies-now/static/media/new.156312c0792f6ca2009f.webp",
+    "static/media/JFHpU0id.jpeg": "/movies-now/static/media/JFHpU0id.4e44af0b0a18b34f84fd.jpeg",
+    "static/media/Gladiator.avif": "/movies-now/static/media/Gladiator.09165844b3363c7f034e.avif",
     "index.html": "/movies-now/index.html",
-    "main.a89bdd11.css.map": "/movies-now/static/css/main.a89bdd11.css.map",
-    "main.e089c80e.js.map": "/movies-now/static/js/main.e089c80e.js.map",
+    "main.9580c4d2.css.map": "/movies-now/static/css/main.9580c4d2.css.map",
+    "main.d24f8ba2.js.map": "/movies-now/static/js/main.d24f8ba2.js.map",
     "453.3a29457c.chunk.js.map": "/movies-now/static/js/453.3a29457c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a89bdd11.css",
-    "static/js/main.e089c80e.js"
+    "static/css/main.9580c4d2.css",
+    "static/js/main.d24f8ba2.js"
   ]
 }
