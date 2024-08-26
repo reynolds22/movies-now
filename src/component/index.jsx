@@ -41,11 +41,16 @@ function MoviesNow(){
                     <FontAwesomeIcon icon={faBars} />
                 </button>
             </header>
-            <body>
-                <Carousel/>
-                <h1>MOVIES NOW</h1>
-            </body>
+            <div>
+                <div className="carousel-container">
+                    <Carousel/>
+                    <div className="h1-Container">
+                        <h1>Movies Now</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
+
 export default MoviesNow;
