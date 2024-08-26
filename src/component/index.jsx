@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm, faMagnifyingGlass, faBars} from '@fortawesome/free-solid-svg-icons';
+import Carousel from "./carousel";
 
 function MoviesNow(){
 
@@ -9,27 +12,39 @@ function MoviesNow(){
     useEffect(()=>{
         const fetchMovie = async() => {
             try {
-                const responce = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=808196157aa973f359929571d9321e60&query=Inception`); 
-                setMovie(responce.data.results[0]);
+                const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=808196157aa973f359929571d9321e60&query=Inception`); 
+                setMovie(response.data.results[0]);
             } catch (err){
                 setError(err);
             }
-        };
+        }; 
         fetchMovie();
     },[]);
 
     if (error) return <div>Error fetching movie data</div>;
     if (!movie) return <div>Loading...</div>;
 
-
-
     return (
         <div className="container">
-            <h1>{movie.title}</h1>
-            <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-            />
+            <header>
+                <button className="icon-film">
+                    <FontAwesomeIcon icon={faFilm} />
+                </button>
+                <span>|</span>
+                <input placeholder="Search Films"/> 
+                <button className="search-button">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                </button>    
+                <span>|</span>
+                <button className="sign-in">Sign In</button>
+                <button className="menu-button">                    
+                    <FontAwesomeIcon icon={faBars} />
+                </button>
+            </header>
+            <body>
+                <Carousel/>
+                <h1>MOVIES NOW</h1>
+            </body>
         </div>
     );
 };

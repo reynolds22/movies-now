@@ -8,5 +8,92 @@
 
 body {
     background-color: #000; 
-    color: gold; 
+    color: #00a6a6; 
+}
+
+header {
+    background-color: rgba(31, 31, 31, 0.75);
+    height: 9vh;
+    display: flex;
+    align-items: center;
+}
+
+.icon-film{
+    margin: 5px 20px 0;
+    font-size: 60px;
+    background: none;
+    color: #00a6a6;
+    border: none;
+}
+
+.icon-film:hover{
+    cursor: pointer;
+    color: gold;
+}
+
+header input{
+    height: 40%;
+    font-size: larger;
+    border-radius: 10px;
+    width: 60%;
+    padding: 10px;
+    border: none;
+}
+
+header input:hover{
+    cursor: text;
+}
+
+.search-button{
+    height: 63%;
+    border: none;
+    border-radius: 10px;
+    margin-left: -60px;
+    width: 5%;
+    font-size: 20px;
+    background-color: white;
+}
+
+.search-button:hover{
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none !important;
+    border: 3px solid gold;
+}
+
+header span{
+    margin: 0 20px 10px;
+    font-size: 60px;
+    font-weight: lighter;
+}
+
+.sign-in{
+    height: 65%;
+    border-radius: 10px;
+    border: none;
+    width: 7%;
+    background-color: #00a6a6; 
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.sign-in:hover{
+    cursor: pointer;
+    background-color: gold;
+}
+
+.menu-button{
+    margin-left: 85px;
+    background-color: rgb(24, 24, 24);
+    border: none;
+    color: #00a6a6; 
+    font-size: 50px;
+}
+
+.menu-button:hover{
+    cursor: pointer;
+    color: gold;
 }
