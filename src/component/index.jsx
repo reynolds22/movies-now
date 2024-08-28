@@ -1,29 +1,35 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faMagnifyingGlass, faBars} from '@fortawesome/free-solid-svg-icons';
 import Carousel from "./carousel";
 
+const API_Key = '808196157aa973f359929571d9321e60';
+const BASE_URL = 'https://api.themoviedb.org/3/movie';
+
 function MoviesNow(){
 
-    const [movie, setMovie] = useState(null);
-    const [error, setError] = useState(null);
+    const [popular, setPopular] = useState([]);
 
-    useEffect(()=>{
-        const fetchMovie = async() => {
+    useEffect(() => {
+        console.log("useEffect triggered");
+    
+        const fetchMovies = async () => {
             try {
-                const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=808196157aa973f359929571d9321e60&query=Inception`); 
-                setMovie(response.data.results[0]);
-            } catch (err){
-                setError(err);
+                const response = await fetch(`${BASE_URL}/popular?api_key=${API_Key}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not it.');
+                }
+                const data = await response.json();
+                console.log("Data received:", data);
+                setPopular(data.results);
+            } 
+            catch (err) {
+                console.error('Failed to get movies:', err);
             }
-        }; 
-        fetchMovie();
-    },[]);
-
-    if (error) return <div>Error fetching movie data</div>;
-    if (!movie) return <div>Loading...</div>;
-
+        };
+        fetchMovies(); 
+    }, []);
+    
     return (
         <div className="container">
             <header>
@@ -48,9 +54,39 @@ function MoviesNow(){
                         <h1>Movies Now</h1>
                     </div>
                 </div>
+                <div className="">
+
+                </div>
             </div>
         </div>
     );
 };
+
+// - component for cards
+// - components for movies category lists with 60+ movies.
+// - log in card
+// - sign up
+// - playlists overview/view or del
+// - look/edit playlist
+// - search
+// - home button
+// - tripple bar
+//      - setting
+//      - travel buttons
+//      - account info
+// - playlist add pop up
+// - movie card
+// - footer stuff
+// - stars
+
+// trending, new releases, upcoming, in theaters
+
+// action, comedy, horror, Sci-Fi, 3d animated
+// superhero, Adventure, Family, 2d animated
+// Romance, Anime, Sitcom, War, Fantasy, Drama
+
+// thriller, crime, Mystery, Documentary, Disaster
+
+// christmas, holloween, sports, video game
 
 export default MoviesNow;
