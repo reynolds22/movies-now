@@ -9,19 +9,23 @@ const BASE_URL = 'https://api.themoviedb.org/3/movie';
 function MoviesNow(){
 
     const [popular, setPopular] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         console.log("useEffect triggered");
-    
         const fetchMovies = async () => {
             try {
+                setIsLoading(true);
                 const response = await fetch(`${BASE_URL}/popular?api_key=${API_Key}`);
+
                 if (!response.ok) {
                     throw new Error('Network response was not it.');
                 }
+
                 const data = await response.json();
                 console.log("Data received:", data);
                 setPopular(data.results);
+                setIsLoading(false);
             } 
             catch (err) {
                 console.error('Failed to get movies:', err);
@@ -29,6 +33,10 @@ function MoviesNow(){
         };
         fetchMovies(); 
     }, []);
+
+    if (isLoading){
+        return <div>Loading...</div>
+    }
     
     return (
         <div className="container">
@@ -54,9 +62,17 @@ function MoviesNow(){
                         <h1>Movies Now</h1>
                     </div>
                 </div>
-                <div className="">
-
-                </div>
+                {/* <div className="Popular-movies">
+                    {popular.map((film)=>(
+                        <div className="film-picture">
+                            {film.original_title}
+                            <img 
+                                src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
+                                alt={film.original_title}
+                            />
+                        </div>
+                    ))}
+                </div> */}
             </div>
         </div>
     );
