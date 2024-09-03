@@ -1,43 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faMagnifyingGlass, faBars} from '@fortawesome/free-solid-svg-icons';
 import Carousel from "./carousel";
-
-const API_Key = '808196157aa973f359929571d9321e60';
-const BASE_URL = 'https://api.themoviedb.org/3/movie';
+import MovieCard from "./MovieCard";
 
 function MoviesNow(){
 
-    const [popular, setPopular] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        console.log("useEffect triggered");
-        const fetchMovies = async () => {
-            try {
-                setIsLoading(true);
-                const response = await fetch(`${BASE_URL}/popular?api_key=${API_Key}`);
-
-                if (!response.ok) {
-                    throw new Error('Network response was not it.');
-                }
-
-                const data = await response.json();
-                console.log("Data received:", data);
-                setPopular(data.results);
-                setIsLoading(false);
-            } 
-            catch (err) {
-                console.error('Failed to get movies:', err);
-            }
-        };
-        fetchMovies(); 
-    }, []);
-
-    if (isLoading){
-        return <div>Loading...</div>
-    }
-    
     return (
         <div className="container">
             <header>
@@ -62,24 +30,25 @@ function MoviesNow(){
                         <h1>Movies Now</h1>
                     </div>
                 </div>
-                {/* <div className="Popular-movies">
-                    {popular.map((film)=>(
-                        <div className="film-picture">
-                            {film.original_title}
-                            <img 
-                                src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
-                                alt={film.original_title}
-                            />
-                        </div>
-                    ))}
-                </div> */}
-            </div>
+                    <MovieCard title="In Theaters Now" category="now_playing" />
+                    <MovieCard title="Upcoming Movies" category="upcoming" pages={2}/>
+                    <MovieCard title="Action Movies" genreId={28} pages={3} /> 
+                    <MovieCard title="Comedy Movies" genreId={35} pages={3} /> 
+
+                    <MovieCard title="Trending" category="popular" />
+                    <MovieCard title="Horror Movies" genreId={27} pages={3} /> 
+                    <MovieCard title="Animated Movies" genreId={16} pages={3} /> 
+                    <MovieCard title="Sci-Fi Movies" genreId={878} pages={3} /> 
+
+                    <MovieCard title="Sci-Fi Movies" genreId={878} pages={3} /> 
+                    <MovieCard title="Sci-Fi Movies" genreId={878} pages={3} /> 
+                    <MovieCard title="Sci-Fi Movies" genreId={878} pages={3} /> 
+                    <MovieCard title="Sci-Fi Movies" genreId={878} pages={3} /> 
+                </div>
         </div>
     );
 };
 
-// - component for cards
-// - components for movies category lists with 60+ movies.
 // - log in card
 // - sign up
 // - playlists overview/view or del
@@ -95,10 +64,11 @@ function MoviesNow(){
 // - footer stuff
 // - stars
 
-// trending, new releases, upcoming, in theaters
+// new shows
+// most popular
 
-// action, comedy, horror, Sci-Fi, 3d animated
-// superhero, Adventure, Family, 2d animated
+// superhero, Adventure, Family, 
+
 // Romance, Anime, Sitcom, War, Fantasy, Drama
 
 // thriller, crime, Mystery, Documentary, Disaster
