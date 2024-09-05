@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./movieCard.css";
+import "./TvCard.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -58,12 +58,12 @@ function TvCard({ title, category, pages = 1, genreId, keyword }){
         }
 
         return (
-            <div className="card-container">
+            <div className="tv-card-container">
                 <h2>{title}</h2>
-                <div className="Popular-movies">
+                <div className="Popular-tv">
                     {shows.map((show) => (
-                        <div className="film-card" key={show.id}>
-                            <button className="add-movie">   
+                        <div className="tv-film-card" key={show.id}>
+                            <button className="add-tv">   
                                 <FontAwesomeIcon className="list-img" icon={faList} />
                                 <p>Add Show</p>               
                             </button>

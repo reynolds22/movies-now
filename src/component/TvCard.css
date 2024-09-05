@@ -1,8 +1,8 @@
-.card-container{
+.tv-card-container{
     background-color: rgb(23, 23, 23);
 }
 
-.Popular-movies{
+.Popular-tv{
     display: flex;
     overflow-x: auto; 
     scroll-snap-type: x mandatory;
@@ -17,37 +17,36 @@ h2{
     margin: 50px 20px 20px;
     font-size: 35px;
     padding-top: 10px;
-    font-family: "Ubuntu", sans-serif;
 }
 
-.Popular-movies::-webkit-scrollbar { 
+.Popular-tv::-webkit-scrollbar { 
     display: none; 
 }
 
-.film-card{
+.tv-film-card{
     text-align: center;
-    width: 15%;
+    width: 20%;
     height: auto;
     flex-shrink: 0;
-    margin-right: 20px;
+    margin-right: 30px;
     scroll-snap-align: start;
-    border: 1px solid #00a6a6;
-    border-radius: 5px;
+    border: 2px solid #00a6a6;
+    border-radius: 25px;
 }
 
-.film-card:hover{
+.tv-film-card:hover{
     cursor: pointer;
     border: 2px solid gold;
     filter: brightness(1.25);
     color: gold;
 }
 
-.film-card:hover h3{
+.tv-film-card:hover h3{
     color: gold;
     text-decoration: underline;
 }
 
-.add-movie{
+.add-tv{
     display: flex;
     background-color: none;
     width: 100%;
@@ -57,26 +56,24 @@ h2{
     background: none;
     color: white;
     letter-spacing: .75px;
+    align-items: center;
+    justify-content: center;
 }
 
-.add-movie:hover{
+.add-tv:hover{
     color: gold;
     text-decoration: underline;
 }
 
-.film-card img{
+.tv-film-card img{
     width: 100%;
 }
 
-.add-movie .list-img{
-    margin-left: 3px;
-}
-
-.add-movie p{
+.add-tv p{
     margin-left: 10px;
 }
 
-.film-card h3{
+.tv-film-card h3{
     font-size: 15px;
     color: white;
     padding-top: 5px;
@@ -93,5 +90,4 @@ h2{
 .stars p{
     margin-left: 5px;
 }
-  
 
