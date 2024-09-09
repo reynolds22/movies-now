@@ -1,0 +1,30 @@
+.movie-trailer-card{
+    position: relative;
+    background-color: rgb(23, 23, 23);
+    padding: 20px;
+    margin-top: 40px;
+    width: 90%;
+    margin: 40px auto 0;
+    border-radius: 50px;
+}
+
+.movie-trailer-card h2{
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    color: gold;
+}
+
+.trailer-con{
+    width: 80%;
+    margin: 30px auto 30px;
+    text-align: center;
+}
+
+.movie-trailer-card iframe{
+    border: 1px solid #00a6a6;
+}
+
+.movie-trailer-card iframe:hover{
+    border: 3px solid gold;
+}
