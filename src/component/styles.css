@@ -12,10 +12,14 @@ body {
 }
 
 header {
-    background-color: rgba(31, 31, 31, 0.75);
-    height: 9vh;
+    background-color: rgba(31, 31, 31, 0.90);
+    height: 10vh;
     display: flex;
     align-items: center;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
 }
 
 .icon-film{
@@ -87,7 +91,7 @@ header span{
 
 .menu-button{
     margin-left: 85px;
-    background-color: rgb(24, 24, 24);
+    background-color: rgba(31, 31, 31, 0);
     border: none;
     color: #00a6a6; 
     font-size: 50px;
@@ -101,6 +105,8 @@ header span{
 .carousel-container {
     position: relative;
     width: 100%;
+    top: 10vh;
+    margin-bottom: 10vh;
 }
 
 .carousel-item{
@@ -139,4 +145,58 @@ h1 {
     font-family: "Ubuntu", sans-serif;
 }
 
+footer{
+    background-color: rgb(23, 23, 23);
+    padding: 50px 0 150px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
 
+footer h3, footer button{
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+footer button{
+    border: 1px solid #00a6a6;
+    padding: 5px;
+    border-radius: 3px;
+    color: #00a6a6;
+    background: none;
+    font-size: 18px;
+}
+
+footer button:hover{
+    background-color: gold;
+    color: black;
+    border: 1px solid gold;
+}
+
+footer .the-logo{
+    font-size: 80px;
+}
+
+.icons{
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.social-icons{
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-sources ul{
+    margin-left: 20px;
+}
+
+.pro-sources li{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.ze-logo{
+    display: flex;
+    flex-direction: column;
+}

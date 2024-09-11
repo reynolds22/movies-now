@@ -38,7 +38,6 @@ function MovieCard({ trailerIndex }) {
         return <div>Loading...</div>;
     }
 
-    // Check if the requested trailerIndex exists
     if (!trailers[trailerIndex] || !trailers[trailerIndex].trailer) {
         return <div>No trailer available for this movie.</div>;
     }

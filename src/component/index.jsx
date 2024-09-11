@@ -5,6 +5,7 @@ import Carousel from "./carousel";
 import MovieCard from "./MovieCard";
 import TvCard from "./TvCard";
 import NewTrailers from "./newMovies";
+import { faInstagram, faFacebook, faXTwitter, faTwitch, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function MoviesNow(){
 
@@ -64,25 +65,36 @@ function MoviesNow(){
                 <MovieCard title="Drama Movies" genreId={18} pages={2} />
             </div>
             <footer>
-                <div>
-                    <h3>Sources for making Movies now</h3>
+                <div className="ze-logo">
+                    <FontAwesomeIcon icon={faFilm} className="the-logo" />
+                    <h3>Movies Now</h3>
+                </div>
+                <div className="pro-sources">
+                    <h3>Project Sources</h3>
                     <hr/>
+                    <ul>
+                        <li>TMDB - API for movie info</li>
+                        <li>YouTube API - For trailers</li>
+                        <li>Google Fonts - For fonts</li>
+                        <li>Font Awsome - For icons</li>
+                        <li>ChatGPT - For learning</li>
+                        <li>Other movie platforms - For UI inspiration</li>
+                    </ul>
                 </div>
                 <div>
-                    <h3>Sociols</h3>
+                    <h3>Social</h3>
                     <hr/>
+                    <div className="social-icons">
+                        <FontAwesomeIcon icon={faInstagram} className="icons"/>
+                        <FontAwesomeIcon icon={faFacebook} className="icons"/>
+                        <FontAwesomeIcon icon={faXTwitter} className="icons"/>
+                        <FontAwesomeIcon icon={faTwitch} className="icons"/>
+                        <FontAwesomeIcon icon={faTiktok} className="icons"/>
+                        <FontAwesomeIcon icon={faYoutube} className="icons"/>
+                    </div>
                 </div>
                 <div>
-                    <h3>Sociols</h3>
-                    <hr/>
-                </div>
-                <div>
-                    <h3>back to top^</h3>
-                    <hr/>
-                </div>
-                <div>
-                    <h3>logo</h3>
-                    <hr/>
+                    <button>&#8593; back to top &#8593;</button>
                 </div>
             </footer>
         </div>
@@ -102,6 +114,5 @@ function MoviesNow(){
 //      - account info
 // - playlist add pop up
 // - clicked movie card
-// - footer stuff
 
 export default MoviesNow;
