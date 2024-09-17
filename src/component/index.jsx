@@ -94,7 +94,9 @@ function MoviesNow(){
                     </div>
                 </div>
                 <div>
-                    <button>&#8593; back to top &#8593;</button>
+                    <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+                        &#8593; back to top &#8593;
+                    </button>
                 </div>
             </footer>
         </div>
