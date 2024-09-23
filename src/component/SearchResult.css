@@ -1,0 +1,12 @@
+
+.search-results-container{
+    position: relative;
+    width: 100%;
+    top: 10vh;
+}
+
+.results-list{
+    border: 2px dotted red;
+    display: flex;
+    flex-wrap: wrap;
+}

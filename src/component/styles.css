@@ -20,6 +20,9 @@ header {
     z-index: 1000;
     width: 100%;
     top: 0;
+
+    justify-content: space-around;  /* Align items across the available space */
+
 }
 
 .icon-film{
@@ -39,8 +42,10 @@ header input{
     font-size: larger;
     border-radius: 10px;
     width: 60%;
-    padding: 10px;
+    padding: 15px;
     border: none;
+    
+    width: 90%;
 }
 
 header input:hover{
@@ -70,10 +75,11 @@ header span{
     margin: 0 20px 10px;
     font-size: 60px;
     font-weight: lighter;
+    margin-left: 0;
 }
 
 .sign-in{
-    height: 65%;
+    height: 55%;
     border-radius: 10px;
     border: none;
     width: 7%;
@@ -94,6 +100,7 @@ header span{
     border: none;
     color: #00a6a6; 
     font-size: 50px;
+    margin-right: 25px;
 }
 
 .menu-button:hover{
@@ -200,4 +207,10 @@ footer .the-logo{
     display: flex;
     flex-direction: column;
     color: gold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    width: 60%;  /* Adjust width as needed */
 }

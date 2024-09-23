@@ -56,28 +56,28 @@ export default function MovieCard({title, category, pages = 1, genreId, keyword}
         return <div>Loading...</div>;
     }
 
-    return (
-        <div className="card-container">
-            <h2>{title}</h2>
+    return ( 
+        <div className="card-container"> 
+            <h2>{title}</h2> 
             <div className="Popular-movies">
-                {movies.map((film)=>(
-                    <div className="film-card">
-                        <button className="add-movie">   
-                            <FontAwesomeIcon className="list-img" icon={faList} />
-                            <p>Add Movie</p>               
+                {movies.map((film, index) => (
+                    <div className="film-card" key={`${film.id}-${index}`}>  {/* Ensure the key is unique */}
+                        <button className="add-movie">
+                        <FontAwesomeIcon className="list-img" icon={faList} />
+                        <p>Add Movie</p>
                         </button>
-                        <img 
-                            src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
-                            alt={film.original_title}
-                        /> 
+                        <img
+                        src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
+                        alt={film.original_title}
+                        />
                         <h3>{film.original_title}</h3>
                         <div className="stars">
-                            <FontAwesomeIcon icon={faStar} />
-                            <p>{film.vote_average.toFixed(1)}</p>
+                        <FontAwesomeIcon icon={faStar} />
+                        <p>{film.vote_average.toFixed(1)}</p>
                         </div>
                     </div>
-                ))}
-            </div>
+                ))} 
+            </div> 
         </div>
     );
 };
