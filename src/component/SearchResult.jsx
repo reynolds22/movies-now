@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faXTwitter, faTwitch, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import "./SearchResult.css";
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 function SearchResult() {
   const navigate = useNavigate();
@@ -87,17 +88,22 @@ function SearchResult() {
       <div className="search-results-container">
         <h1>Search Results for: {query}</h1>
         <div className="results-list">
-          {results.length > 0 ? (
-            results.map((item) => (
-              <div key={item.id} className="search-result-item">
-                <h3>{item.title || item.name}</h3> 
-                <p>{item.release_date || item.first_air_date}</p> 
-                <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title || item.name} />
-              </div>
-            ))
-          ) : (
-            <p>No results found for "{query}".</p>
-          )}
+          {results.length > 0 
+            ? (results.map((item) => (
+                <div key={item.id} className="search-result-item">
+                    <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title || item.name} />
+                    <h3>{item.title || item.name}</h3> 
+                    <div className="move-info">
+                        <p className='p1'>{item.release_date ? item.release_date.slice(0, 4) : item.first_air_date ? item.first_air_date.slice(0, 4) : "N/A"}</p>
+                        <div className="move-rate">
+                            <FontAwesomeIcon id="rate-star" icon={faStar} />
+                            <p className='p2'>{item.vote_average.toFixed(1)}</p>
+                        </div>
+                    </div>
+                </div>
+            ))) 
+            : (<p>No results found for "{query}".</p>)
+          }
         </div>
       </div>
       <footer>
