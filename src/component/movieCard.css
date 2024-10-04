@@ -1,97 +1,138 @@
-.card-container{
+/* General container styling */
+.card-container {
     background-color: rgb(23, 23, 23);
 }
 
-.Popular-movies{
+.Popular-movies {
     display: flex;
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Ensures smooth scroll snapping */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+    scrollbar-width: none; /* Hides the scrollbar on Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
     margin-left: 20px;
     padding-bottom: 20px;
+    gap: 20px; /* Add space between the cards */
 }
 
-h2{
+/* Hide scrollbar for cross-browser compatibility */
+.Popular-movies::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* Heading styling */
+h2 {
     margin: 50px 20px 20px;
     font-size: 35px;
     padding-top: 10px;
     font-family: "Ubuntu", sans-serif;
 }
 
-.Popular-movies::-webkit-scrollbar { 
-    display: none; 
-}
-
-.film-card{
-    text-align: center;
-    width: 20%;
-    height: auto;
-    flex-shrink: 0;
-    margin-right: 20px;
-    scroll-snap-align: start;
-    border: 1px solid #00a6a6;
+/* Film card styling */
+.film-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;  /* Prevents the card from shrinking */
+    width: 19%;  /* Increase the card width */
+    min-height: 400px;  /* Increase the card height */
+    margin-right: 20px;  /* Adds space between cards */
+    padding: 15px;  /* Adds inner padding to the card */
+    background-color: #222;
+    box-sizing: border-box;
+    border: 2px solid #00a6a6;
     border-radius: 5px;
 }
 
-.film-card:hover{
-    cursor: pointer;
+.film-card:hover {
     border: 2px solid gold;
-    filter: brightness(1.25);
+    color: gold;
+    filter: brightness(1.1);
+    cursor: pointer;
+}
+
+.film-card:hover h3 {
     color: gold;
 }
 
-.film-card:hover h3{
-    color: gold;
-    text-decoration: underline;
+/* Image inside the film card */
+.film-card img {
+    width: 90%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
-.add-movie{
-    display: flex;
-    background-color: none;
+/* Title inside the film card */
+.film-card h3 {
+    text-align: center;
+    margin: 5px 0;
+    color: white;
+    font-size: 16px;
+}
+
+/* .add-movie{
     width: 100%;
+} */
+
+.stars {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #00a6a6;
+    margin-bottom: 10px;  /* Adds space between stars and the button */
+}
+
+.p1, .p2 {
+    color: #00a6a6;
+    font-size: 14px;
+}
+
+.p2 {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #00a6a6;
+    margin-left: auto;  /* Pushes stars to the right */
+}
+
+/* Star color */
+#rate-star {
+    color: #00a6a6;
+}
+
+.add-movie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;  /* Ensures the button stays at the bottom */
+    border: 2px solid #00a6a6;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.add-movie:hover {
+    background-color: #f0f0f0;
+}
+
+.add-movie .list-img {
+    font-size: 20px;
+    color: #000;
+    margin-right: 10px; 
+}
+
+.add-movie p {
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+}
+
+.add-movie:hover {
+    background-color: gold;
     border: none;
-    padding: 4px;
-    font-size: 15px;
-    background: none;
-    color: white;
-    letter-spacing: .75px;
 }
-
-.add-movie:hover{
-    color: gold;
-    text-decoration: underline;
-}
-
-.film-card img{
-    width: 100%;
-}
-
-.add-movie .list-img{
-    margin-left: 3px;
-}
-
-.add-movie p{
-    margin-left: 10px;
-}
-
-.film-card h3{
-    font-size: 15px;
-    color: white;
-    padding-top: 5px;
-    letter-spacing: 1.5px;
-    height: 40px;
-    overflow: hidden;
-}
-
-.stars{
-    display: flex;
-    margin: 10px 5px;
-}
-
-.stars p{
-    margin-left: 5px;
-}
-  
 

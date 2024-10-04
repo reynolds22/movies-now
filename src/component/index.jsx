@@ -1,55 +1,20 @@
-import React, {useState} from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faMagnifyingGlass, faBars} from '@fortawesome/free-solid-svg-icons';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import Carousel from "./carousel";
 import MovieCard from "./MovieCard";
 import TvCard from "./TvCard";
 import NewTrailers from "./newMovies";
 import { faInstagram, faFacebook, faXTwitter, faTwitch, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { useNavigate } from 'react-router-dom';  
 import "./styles.css";
+import Header from "./header";
 
 function MoviesNow(){
-
-    const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState("");
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        if (searchTerm.trim()) {
-          navigate(`/search/${searchTerm}`);
-        }
-      };    
-
-    const goToHome = () => {
-        navigate("/", { replace: true });  // Navigate to the main page
-        window.scrollTo({ top: 0, behavior: 'smooth' });  // Scroll to the top
-    };
 
     return (
         <div className="container">
             <header>
-                <button className="icon-film" onClick={goToHome}>
-                    <FontAwesomeIcon icon={faFilm} />
-                </button>
-                <span>|</span>
-
-                <form onSubmit={handleSearch}>
-                    <input
-                        placeholder="Search Films"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    <button type="submit" className="search-button">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </form>
-
-                <span>|</span>
-                <button className="sign-in">Sign In</button>
-                <button className="menu-button">                    
-                    <FontAwesomeIcon icon={faBars} />
-                </button>
+                <Header />
             </header>
             <div className="body">
                 <div className="carousel-container">
@@ -132,7 +97,6 @@ function MoviesNow(){
 // - sign up
 // - playlists overview/view or del
 // - look/edit playlist
-// - search
 // - tripple bar
 //      - to the tv section, to the movie section, to the bottom
 //      - setting
@@ -140,5 +104,6 @@ function MoviesNow(){
 //      - account info
 // - playlist add pop up
 // - clicked movie card
+// - acounts
 
 export default MoviesNow;

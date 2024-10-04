@@ -4,19 +4,21 @@
 
 .Popular-tv{
     display: flex;
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Ensures smooth scroll snapping */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+    scrollbar-width: none; /* Hides the scrollbar on Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
     margin-left: 20px;
     padding-bottom: 20px;
-}
+    gap: 20px; /* Add space between the cards */
+} 
 
 h2{
     margin: 50px 20px 20px;
     font-size: 35px;
     padding-top: 10px;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .Popular-tv::-webkit-scrollbar { 
@@ -24,53 +26,71 @@ h2{
 }
 
 .tv-film-card{
-    text-align: center;
-    width: 20%;
-    height: auto;
-    flex-shrink: 0;
-    margin-right: 30px;
-    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;  /* Prevents the card from shrinking */
+    width: 19%;  /* Increase the card width */
+    min-height: 400px;  /* Increase the card height */
+    margin-right: 20px;  /* Adds space between cards */
+    padding: 15px;  /* Adds inner padding to the card */
+    background-color: #222;
+    box-sizing: border-box;
     border: 2px solid #00a6a6;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .tv-film-card:hover{
-    cursor: pointer;
     border: 2px solid gold;
-    filter: brightness(1.25);
     color: gold;
+    filter: brightness(1.1);
+    cursor: pointer;
 }
 
 .tv-film-card:hover h3{
     color: gold;
-    text-decoration: underline;
 }
 
-.add-tv{
+.add-tv {
     display: flex;
-    background-color: none;
-    width: 100%;
-    border: none;
-    padding: 4px;
-    font-size: 15px;
-    background: none;
-    color: white;
-    letter-spacing: .75px;
     align-items: center;
     justify-content: center;
+    margin-top: auto;  /* Ensures the button stays at the bottom */
+    border: 2px solid #00a6a6;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
-.add-tv:hover{
-    color: gold;
-    text-decoration: underline;
+.add-tv:hover {
+    background-color: #f0f0f0;
 }
 
 .tv-film-card img{
-    width: 100%;
+    width: 90%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.add-tv .list-img{
+    font-size: 20px;
+    color: #000;
+    margin-right: 10px; 
 }
 
 .add-tv p{
-    margin-left: 10px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+}
+
+.add-tv:hover{
+    background-color: gold;
+    border: none;
 }
 
 .tv-film-card h3{

@@ -53,7 +53,7 @@ export default function MovieCard({ title, category, pages = 1, genreId, keyword
 
   if (isLoading) {
     return <div>Loading...</div>;
-  }
+  } 
 
   return (
     <div className="card-container">
@@ -61,25 +61,23 @@ export default function MovieCard({ title, category, pages = 1, genreId, keyword
       <div className="Popular-movies">
         {movies.map((film, index) => (
           <div className="film-card" key={`${film.id}-${index}`}>
-            <button className="add-movie">
-              <FontAwesomeIcon className="list-img" icon={faList} />
-              <p>Add Movie</p>
-            </button>
             <img
               src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
               alt={film.original_title}
             />
             <h3>{film.original_title}</h3>
+            <button className="add-movie">
+              <FontAwesomeIcon className="list-img" icon={faList} />
+              <p>Add Movie</p>
+            </button>
             <div className="stars">
               <p className='p1'>
-                {film.release_date
-                  ? film.release_date.slice(0, 4)
-                  : film.first_air_date
-                  ? film.first_air_date.slice(0, 4)
-                  : "N/A"}
+                {film.release_date ? film.release_date.slice(0, 4) : "N/A"}
               </p>
-              <FontAwesomeIcon icon={faStar} />
-              <p>{film.vote_average.toFixed(1)}</p>
+              <div className="p2">
+                <FontAwesomeIcon id="rate-star" icon={faStar} />
+                <p>{film.vote_average.toFixed(1)}</p>
+              </div>
             </div>
           </div>
         ))}

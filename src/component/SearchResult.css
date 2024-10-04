@@ -6,12 +6,12 @@
     box-sizing: border-box;
     overflow: hidden;
   }
-
+  
   .search-results-container::after {
     content: "";
     display: block;
     clear: both;
-  }  
+  }
   
   .search-results-container h1 {
     margin-bottom: 20px;
@@ -31,16 +31,16 @@
     align-items: center;
     justify-content: flex-start;
     width: 20%;
-    min-height: 300px;  /* Ensure a consistent height */
+    min-height: 350px; /* Ensure consistent height */
     margin: 15px 0;
     padding: 10px;
-    background-color: #222; /* Background to make the text pop */
+    background-color: #222;
     box-sizing: border-box;
     border: 2px solid #00a6a6;
     border-radius: 5px;
   }
-
-  .search-result-item:hover{
+  
+  .search-result-item:hover {
     border: 2px solid gold;
     color: gold;
     filter: brightness(1.1);
@@ -49,7 +49,7 @@
   .search-result-item img {
     width: 90%;
     height: auto;
-    margin-bottom: 10px;  /* Add spacing between image and title */
+    margin-bottom: 10px;
   }
   
   .search-result-item h3 {
@@ -63,8 +63,8 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-    margin-top: auto; /* Pushes this section to the bottom */
-    border: none;  /* Remove the border if it's not needed */
+    margin-top: 10px;
+    border: none;
   }
   
   .move-rate {
@@ -77,13 +77,48 @@
     color: #00a6a6;
     font-size: 14px;
   }
-
-  .p2{
+  
+  .p2 {
     margin-left: 5px;
   }
-
-  #rate-star{
+  
+  #rate-star {
     color: #00a6a6;
   }
   
+  /* Ensuring that the "Add Movie" button is aligned consistently at the bottom */
+  .add-movie {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    margin-top: auto; /* Ensures the button stays at the bottom */
+    border: 2px solid #00a6a6;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-movie:hover {
+    background-color: #f0f0f0; /* Lighter color on hover */
+  }
+  
+  .add-movie .list-img {
+    font-size: 20px;
+    color: #000;
+    margin-right: 10px;
+}
+
+.add-movie p {
+    font-weight: bold;
+    color: #000;
+    margin-top: 5px;
+}
+
+.add-movie:hover {
+    background-color: gold;
+    border: none;
+}
   

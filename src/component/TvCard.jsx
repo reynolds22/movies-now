@@ -63,18 +63,23 @@ function TvCard({ title, category, pages = 1, genreId, keyword }){
                 <div className="Popular-tv">
                     {shows.map((show) => (
                         <div className="tv-film-card" key={show.id}>
-                            <button className="add-tv">   
-                                <FontAwesomeIcon className="list-img" icon={faList} />
-                                <p>Add Show</p>               
-                            </button>
-                            <img 
+                            <img  
                                 src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
                                 alt={show.name}
                             /> 
                             <h3>{show.name}</h3>
+                            <button className="add-tv">   
+                                <FontAwesomeIcon className="list-img" icon={faList} />
+                                <p>Add Show</p>               
+                            </button>
                             <div className="stars">
-                                <FontAwesomeIcon icon={faStar} />
-                                <p>{show.vote_average.toFixed(1)}</p>
+                                <p className='p1'>
+                                    {show.first_air_date ? show.first_air_date.slice(0, 4) : "N/A"}
+                                </p>
+                                <div className="p2">
+                                    <FontAwesomeIcon id="rate-star" icon={faStar} />
+                                    <p>{show.vote_average.toFixed(1)}</p>
+                                </div>
                             </div>
                         </div>
                     ))}
