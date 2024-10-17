@@ -2,17 +2,19 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MoviesNow from "./component";
 import SearchResult from "./component/SearchResult";
-import SignIn from "./component/SignIn";
+import About from "./component/about";
+import Layout from "./component/layout";
 
 function App() {
   return (
     <Router basename="/movies-now">
-      <Routes>
-        <Route path="/" element={<MoviesNow />} />
-        {/* Update the search route to handle both query and type */}
-        <Route path="/search/:query/:type" element={<SearchResult />} /> 
-        <Route path="/sign-in" element={<SignIn />} />
-      </Routes>
+      <Layout/>
+        <Routes>
+          <Route path="/" element={<MoviesNow />} />
+          <Route path="/search/:query/:type" element={<SearchResult />} /> 
+          <Route path="/about" element={<About />} />
+        </Routes>
+      <Layout/>
     </Router>
   );
 }
