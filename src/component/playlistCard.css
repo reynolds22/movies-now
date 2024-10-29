@@ -1,0 +1,25 @@
+.playlist-card {
+    width: 200px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #222;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .playlist-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .playlist-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #00a6a6;
+  }
+  
+  .playlist-card p {
+    color: #ccc;
+  }
+  

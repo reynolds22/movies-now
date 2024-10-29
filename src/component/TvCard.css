@@ -38,7 +38,7 @@ h2{
     background-color: #222;
     box-sizing: border-box;
     border: 2px solid #00a6a6;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .tv-film-card:hover{

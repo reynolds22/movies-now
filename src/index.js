@@ -11,12 +11,11 @@ root.render(
   </React.StrictMode>
 );
 
-// finnish slider button
 // make playlist viewing page with the add and delete playlist options
 // weiw movies within playlists
 // view individual movies
 // add movie buttons
-// make site for phone 
+// make site responsive css 
 // finnish up.
 
 reportWebVitals();
