@@ -4,7 +4,7 @@
   }
   
   .new-playlist-btn {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -26,3 +26,6 @@
     justify-content: center;
   }
   
+h1 {
+    margin: 100px 0 50px;
+}

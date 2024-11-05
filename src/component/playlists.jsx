@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import PlaylistCard from './playlistCard';
 import './playlists.css';
 
-export default function Playlists() {
-  const [playlists, setPlaylists] = useState([
-    // Example playlist data; replace with real data or fetch from an API
-    { id: 1, title: 'My First Playlist', description: 'A collection of my favorite movies' },
-    { id: 2, title: 'Action Hits', description: 'Top action movies' },
-    // Add more playlists as needed
-  ]);
+export default function Playlists({ playlists }) {
+  const navigate = useNavigate();
 
-  // Function to handle creating a new playlist
-  const createNewPlaylist = () => {
-    // Placeholder for creating a new playlist; open a form or popup if needed
-    const newPlaylist = { id: playlists.length + 1, title: `Playlist ${playlists.length + 1}`, description: 'New playlist description' };
-    setPlaylists([...playlists, newPlaylist]);
+  const handleCreatePlaylist = () => {
+    navigate('/playlists/create'); // Navigate to the create playlist page
   };
 
   return (
     <div className="playlists-page">
       <h1>Your Playlists</h1>
-      <button className="new-playlist-btn" onClick={createNewPlaylist}>Create New Playlist</button>
+      <button className="new-playlist-btn" onClick={handleCreatePlaylist}>Create New Playlist</button>
       <div className="playlists-grid">
         {playlists.map((playlist) => (
-          <PlaylistCard key={playlist.id} title={playlist.title} description={playlist.description} />
+          <Link to={`/playlists/${playlist.id}`} key={playlist.id} className="playlist-link">
+            <PlaylistCard
+              title={playlist.name}
+              description={playlist.description}
+              image={playlist.image || (playlist.movies.length > 0 ? `https://image.tmdb.org/t/p/w500${playlist.movies[0].poster_path}` : 'default.jpg')}
+            />
+          </Link>
         ))}
       </div>
     </div>

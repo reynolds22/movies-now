@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';  // Consolidated imports
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faList, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faXTwitter, faTwitch, faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import "./SearchResult.css";
-import { faList, faStar } from '@fortawesome/free-solid-svg-icons';
 import Header from './header';
+import usePlaylists from './usePlaylist';
+import AddToPlaylistPopup from './AddToPlaylistPopup'; 
 
 function SearchResult() {
-
-  const { query, type } = useParams();  // Get the search query and type (movie or show) from the URL
+  const { query, type } = useParams();
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { playlists, addMovieToPlaylist } = usePlaylists();
+
+  // Popup state
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 
   const API_KEY = "808196157aa973f359929571d9321e60";
   
@@ -48,6 +54,18 @@ function SearchResult() {
     fetchSearchResults();
   }, [query, type]);
 
+  const handleOpenPopup = (movie, event) => {
+    const buttonRect = event.target.getBoundingClientRect();
+    setPopupPosition({ top: buttonRect.bottom + window.scrollY, left: buttonRect.left });
+    setSelectedMovie(movie);
+    setIsPopupOpen(true);
+  };
+
+  const handleAddToPlaylist = (playlistId) => {
+    addMovieToPlaylist(playlistId, selectedMovie);
+    setIsPopupOpen(false); // Close the popup after adding
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -69,7 +87,7 @@ function SearchResult() {
                 <div key={item.id} className="search-result-item">
                     <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.title || item.name} />
                     <h3>{item.title || item.name}</h3> 
-                    <button className="add-movie">
+                    <button className="add-movie" onClick={(e) => handleOpenPopup(item, e)}>
                       <FontAwesomeIcon className="list-img" icon={faList} />
                       <p>Add {type === "movie" ? "Movie" : "Show"}</p>
                     </button>
@@ -86,6 +104,17 @@ function SearchResult() {
           }
         </div>
       </div>
+
+      {/* Popup for adding to playlist */}
+      {isPopupOpen && (
+        <AddToPlaylistPopup
+          playlists={playlists}
+          onAdd={handleAddToPlaylist}
+          onClose={() => setIsPopupOpen(false)}
+          position={popupPosition} // Pass position for accurate placement
+        />
+      )}
+
       <footer>
         <div className="ze-logo">
             <FontAwesomeIcon icon={faFilm} className="the-logo" />
