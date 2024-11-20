@@ -70,10 +70,10 @@ export default function MovieCard({ title, category, pages = 1, genreId, keyword
   };
   
   const handleAddToPlaylist = (playlistId) => {
-    addMovieToPlaylist(playlistId, selectedMovie); // Add movie to the selected playlist
-    setIsPopupOpen(false); // Close the popup after adding
+    addMovieToPlaylist(playlistId, selectedMovie);  // selectedMovie should contain the movie data
+    setIsPopupOpen(false); // Close popup after adding
   };
-
+  
   if (isLoading) {
     return <div>Loading...</div>;
   } 

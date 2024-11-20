@@ -3,7 +3,7 @@ import React from "react";
 import "./AddToPlaylistPopup.css";
 
 export default function AddToPlaylistPopup({ playlists, onAdd, onClose, position }) {
-  if (!position) return null;  // Guard clause in case position isn't passed
+  if (!position) return null;
 
   return (
     <div
@@ -12,7 +12,7 @@ export default function AddToPlaylistPopup({ playlists, onAdd, onClose, position
         position: "absolute",
         top: position.top,
         left: position.left,
-        zIndex: 1000,  // Ensure it overlays correctly
+        zIndex: 1000, 
       }}
     >
       <h3>Select Playlist</h3>

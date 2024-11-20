@@ -10,29 +10,46 @@ import PlaylistDetail from "./component/PlaylistDetail";
 import usePlaylists from "./component/usePlaylist";
 
 function App() { 
-  const { playlists, addPlaylist, addMovieToPlaylist } = usePlaylists();
+  const { playlists, setPlaylists, addPlaylist, addMovieToPlaylist } = usePlaylists(); // Include setPlaylists
 
   return ( 
-// App.js
-<Router>
-  <Layout />
-  <Routes>
-    <Route 
-      path="/" 
-      element={<MoviesNow playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />} 
-    />
-    <Route 
-      path="/search/:query/:type" 
-      element={<SearchResult playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />} 
-    /> 
-    <Route path="/about" element={<About />} />
-    <Route path="/playlists" element={<Playlists playlists={playlists} />} />
-    <Route path="/playlists/create" element={<CreatePlaylist addPlaylist={addPlaylist} />} />
-    <Route path="/playlists/:id" element={<PlaylistDetail playlists={playlists} />} />
-    <Route path="/playlists/:id" element={<PlaylistDetail playlists={playlists} />} />
-  </Routes>
-  <Layout />
-</Router>
+    <Router>
+      <Layout />
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <MoviesNow 
+              playlists={playlists} 
+              addMovieToPlaylist={addMovieToPlaylist} 
+            />
+          } 
+        />
+        <Route 
+          path="/search/:query/:type" 
+          element={
+            <SearchResult 
+              playlists={playlists} 
+              addMovieToPlaylist={addMovieToPlaylist} 
+            />
+          } 
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/playlists" element={<Playlists playlists={playlists} />} />
+        <Route path="/playlists/create" element={<CreatePlaylist addPlaylist={addPlaylist} />} />
+        <Route
+          path="/playlists/:id"
+          element={
+            <PlaylistDetail 
+              playlists={playlists} 
+              setPlaylists={setPlaylists} 
+              addMovieToPlaylist={addMovieToPlaylist} 
+            />
+          }
+        />
+      </Routes>
+      <Layout />
+    </Router>
   );
 }
 

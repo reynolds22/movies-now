@@ -62,9 +62,7 @@ function MoviesNow({ playlists, addMovieToPlaylist }) {
                 <MovieCard title="Documentary" genreId={99} pages={2} playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />
                 <MovieCard title="Drama Movies" genreId={18} pages={2} playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />
             </div>
-            <footer>
-                <Footer />
-            </footer>
+            <Footer />
         </div>
     );
 }

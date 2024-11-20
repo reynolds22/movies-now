@@ -35,3 +35,4 @@ root.render(
 // If no movies are added yet, it displays "No movies added yet."
 
 reportWebVitals();
+

@@ -1,0 +1,91 @@
+footer{
+    background-color: rgb(23, 23, 23);
+    padding: 50px 0 150px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+}
+
+footer h3, footer button{
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+footer button{
+    border: 1px solid #00a6a6;
+    padding: 5px;
+    border-radius: 3px;
+    color: #00a6a6;
+    background: none;
+    font-size: 18px;
+}
+
+footer button:hover{
+    background-color: gold;
+    color: black;
+    border: 1px solid gold;
+}
+
+footer .the-logo{
+    font-size: 80px;
+    color: gold;
+}
+
+.icons{
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.social-icons{
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-sources ul{
+    margin-left: 20px;
+}
+
+.pro-sources li{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.ze-logo{
+    display: flex;
+    flex-direction: column;
+    color: gold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    width: 60%;  /* Adjust width as needed */
+}
+
+.search-togles {
+    height: 100%;
+    width: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 3px;
+}
+
+.search-togles button {
+    height: 60%;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.search-togles button:hover {
+    border: 2px solid #00a6a6;
+    cursor: pointer;
+}
+
+.search-togles .active {
+    background-color: gold;  /* Highlight the active button */
+}

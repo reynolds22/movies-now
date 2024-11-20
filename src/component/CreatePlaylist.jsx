@@ -1,27 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import "./CreatePlaylist.css";
 
 export default function CreatePlaylist({ addPlaylist }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);  // For storing the image as a Base64 string
+  const [image, setImage] = useState(null); // For uploading an optional image
   const navigate = useNavigate();
 
-  // Convert the selected image file to a Base64 string
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result); // Store the Base64 string in the state
-      };
-      reader.readAsDataURL(file);  // Read file as Base64
+    if (e.target.files && e.target.files[0]) {
+      setImage(URL.createObjectURL(e.target.files[0])); // Preview the selected image
     }
   };
 
   const handleSave = () => {
     if (name.trim()) {
-      addPlaylist(name, description, image); // Pass Base64 image data
+      addPlaylist(name, description, image); // Passing individual arguments
       setName("");
       setDescription("");
       setImage(null);
@@ -33,6 +28,11 @@ export default function CreatePlaylist({ addPlaylist }) {
 
   return (
     <div className="create-playlist">
+      <div className="top-bar">
+        <button onClick={() => navigate(-1)} className="back-button">
+          ← Cancel
+        </button>
+      </div>
       <h1>Create New Playlist</h1>
       <input
         type="text"
@@ -53,4 +53,4 @@ export default function CreatePlaylist({ addPlaylist }) {
       <button onClick={handleSave}>Save Playlist</button>
     </div>
   );
-} 
+}
