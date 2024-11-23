@@ -1,6 +1,7 @@
 .playlists-page {
     text-align: center;
     padding: 20px;
+    margin-bottom: 200px;
   }
   
   .new-playlist-btn {
@@ -28,4 +29,8 @@
   
 h1 {
     margin: 100px 0 50px;
+}
+
+Footer{
+  bottom: 0;
 }

@@ -1,39 +1,23 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-// import "./CreatePlaylist.css";
+import React, { useState } from 'react';
 
 export default function CreatePlaylist({ addPlaylist }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null); // For uploading an optional image
-  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
-  const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0])); // Preview the selected image
-    }
-  };
-
-  const handleSave = () => {
+  const handleCreatePlaylist = () => {
     if (name.trim()) {
-      addPlaylist(name, description, image); // Passing individual arguments
-      setName("");
-      setDescription("");
-      setImage(null);
-      navigate('/playlists');
+      addPlaylist(name, description);
+      setName('');
+      setDescription('');
+      alert('Playlist created successfully!');
     } else {
-      alert("Playlist name is required.");
+      alert('Please enter a playlist name.');
     }
   };
 
   return (
     <div className="create-playlist">
-      <div className="top-bar">
-        <button onClick={() => navigate(-1)} className="back-button">
-          ← Cancel
-        </button>
-      </div>
-      <h1>Create New Playlist</h1>
+      <h2>Create New Playlist</h2>
       <input
         type="text"
         placeholder="Playlist Name"
@@ -41,16 +25,11 @@ export default function CreatePlaylist({ addPlaylist }) {
         onChange={(e) => setName(e.target.value)}
       />
       <textarea
-        placeholder="Optional Description"
+        placeholder="Description (optional)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-      ></textarea>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleImageChange}
       />
-      <button onClick={handleSave}>Save Playlist</button>
+      <button onClick={handleCreatePlaylist}>Create Playlist</button>
     </div>
   );
 }

@@ -54,6 +54,7 @@
   margin-top: 30px;
 }
 
+/* Default Movie Card Styles */
 .movie-card {
   width: 150px;
   text-align: center;
@@ -61,6 +62,12 @@
   padding: 10px;
   border-radius: 10px;
   border: 2px solid #00a6a6;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Red Border on Movie Card When Hovering Over Delete Button */
+.movie-card .delete-movie:hover {
+  border-color: red; /* Change border color of button to red */
 }
 
 .movie-card img {
@@ -154,3 +161,69 @@
   background-color: #007b7b;
 }
 
+.movie-card[draggable="true"] {
+  cursor: grab;
+}
+
+.movie-card[draggable="true"]:active {
+  cursor: grabbing;
+  opacity: 0.6; /* Provide visual feedback while dragging */
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* PlaylistDetail.css */
+
+/* Ensure the parent container of the info boxes is positioned correctly */
+.playlist-info {
+  margin-top: 20px;
+  position: relative; /* Set this to ensure child absolute positioning works */
+}
+
+/* Info Boxes */
+.info-box {
+  position: absolute; /* Ensure absolute positioning */
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #00a6a6;
+  border-radius: 5px;
+  color: #333;
+  font-size: 14px;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Ensure it stays above other elements */
+}
+
+/* Left Info Box */
+.left-info {
+  position: absolute;
+  left: 100px; /* Position it to the left of the playlist image */
+  top: 100px; /* Align it vertically */
+}
+
+/* Right Info Box */
+.right-info {
+  position: absolute;
+  right: 100px; /* Position it to the right of the playlist image */
+  top: 100px; /* Align it vertically */
+}
+
+/* Other PlaylistDetail Styles */
+.playlist-detail {
+  text-align: center;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.playlist-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Keep existing styles unchanged for other elements */
