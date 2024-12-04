@@ -34,6 +34,7 @@ footer .the-logo{
 .icons{
     font-size: 25px;
     margin-top: 10px;
+    color: #00a6a6;
 }
 
 .social-icons{
@@ -43,6 +44,8 @@ footer .the-logo{
 
 .pro-sources ul{
     margin-left: 20px;
+    color: #00a6a6;
+    
 }
 
 .pro-sources li{
@@ -56,36 +59,10 @@ footer .the-logo{
     color: gold;
 }
 
-form {
-    display: flex;
-    align-items: center;
-    width: 60%;  /* Adjust width as needed */
+.pro-sources h3{
+    color: #00a6a6;
 }
 
-.search-togles {
-    height: 100%;
-    width: 80px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 3px;
-}
-
-.search-togles button {
-    height: 60%;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    background-color: white;
-    transition: background-color 0.3s, border 0.3s;
-}
-
-.search-togles button:hover {
-    border: 2px solid #00a6a6;
-    cursor: pointer;
-}
-
-.search-togles .active {
-    background-color: gold;  /* Highlight the active button */
+.social-color{
+    color: #00a6a6;
 }

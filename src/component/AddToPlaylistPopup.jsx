@@ -15,6 +15,9 @@ export default function AddToPlaylistPopup({ playlists, onAdd, onClose, position
         zIndex: 1000, 
       }}
     >
+      <div className="theX">
+        <button onClick={onClose}>X</button>
+      </div>
       <h3>Select Playlist</h3>
       <ul>
         {playlists.map((playlist) => (
@@ -23,7 +26,6 @@ export default function AddToPlaylistPopup({ playlists, onAdd, onClose, position
           </li>
         ))}
       </ul>
-      <button onClick={onClose}>Close</button>
     </div>
   );
 }

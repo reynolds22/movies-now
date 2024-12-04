@@ -1,20 +1,36 @@
 .add-to-playlist-popup {
   position: absolute;
   z-index: 1000;
-  background-color: #fff;
+  background-color: black;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid gold;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-  .add-to-playlist-popup h3 {
-    margin-top: 0;
-  }
+.theX{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.theX button{
+  align-self: flex-end;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
+.add-to-playlist-popup h3{
+  font-size: 16px;
+  padding-right: 15px;
+  color: white;
+}
   
   .add-to-playlist-popup ul {
     list-style: none;
-    padding: 0;
+    padding: 5px;
   }
   
   .add-to-playlist-popup ul li {
@@ -23,6 +39,8 @@
   }
   
   .add-to-playlist-popup ul li:hover {
-    background-color: #eee;
+    background-color: gold;
+    color: black;
+    border-radius: 3px;
   }
   

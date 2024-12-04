@@ -17,14 +17,12 @@ function MoviesNow({ playlists, addMovieToPlaylist }) {
 
     return (
         <div className="container">
-            <header>
-                <Header toggleMenu={toggleMenu} />
-            </header>
+            <Header toggleMenu={toggleMenu} />
             <SlidingMenu isOpen={isMenuOpen} closeMenu={() => setIsMenuOpen(false)} />
             <div className="body">
                 <div className="carousel-container">
                     <Carousel />
-                    <div className="h1-Container">
+                    <div className="h1-Container"> 
                         <h1>Movies Now</h1>
                     </div>
                 </div>
@@ -70,20 +68,14 @@ function MoviesNow({ playlists, addMovieToPlaylist }) {
 export default MoviesNow;
 
 
-// make playlist view able
-// make playlist have a edit 
-// in playlist edit edit button changes to done
-// - while in this mode have a delete button
-// - change pic
-// - change name 
-// - change description
-// - move content around
-// - have a togle so playlist can have a 1st to last togle numbered
-// - delete movie option
-// each movie card is clickable
 // figure out movies layout 
-// css stuff
-//  -
-//  -
-//  -
+// css for movies 
+// css for playlist
+// css for cards
+// css for searches
+// css for playlists
+// css for create playlist
+// refresh css stuff
+// clean up code
 // responsive stuff
+

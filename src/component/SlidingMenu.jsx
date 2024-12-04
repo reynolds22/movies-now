@@ -14,17 +14,19 @@ export default function SlidingMenu({ isOpen, closeMenu }) {
     setIsPopupOpen(true);
   };
 
-  // Close the settings popup
+  // Close the settings popup 
   const closePopup = () => {
     setIsPopupOpen(false);
-  };
+  }; 
 
   const goToHome = () => {
     navigate('/');  // Navigate to the main page (root)
     closeMenu();    // Close the sliding menu after navigation
   }; 
 
-  return (
+  console.log('SlidingMenu Props:', { isOpen, closeMenu });
+
+  return ( 
     <>
       <div className={`sliding-menu ${isOpen ? 'open' : ''}`}>
         <button className="close-menu-btn" onClick={closeMenu}>X</button>

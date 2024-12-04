@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import AddToPlaylistPopup from './AddToPlaylistPopup';
 import './PlaylistDetail.css';
 import Footer from './Footer';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlaylist }) {
   const { id } = useParams();
@@ -81,10 +83,14 @@ export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlay
     setIsPopupOpen(true);
   };
 
+  const handleCardClick = (movie) => {
+    navigate(`/details/movie/${movie.id}`);
+  };
+  
   return (
     <div>
       <div className="playlist-detail">
-        {/* Top Bar */}
+        {/* Top Bar */} 
         <div className="top-bar">
           <button onClick={() => navigate(-1)} className="back-arrow">
             ← Back
@@ -134,43 +140,69 @@ export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlay
 
         {/* Movies */}
         <div className="playlist-movies">
-          {playlist.movies.length > 0 ? (
-            playlist.movies.map((movie, index) => (
-              <div
-                key={movie.id}
-                className="movie-card"
-                draggable={isEditMode} // Enable drag only in edit mode
-                onDragStart={() => handleDragStart(index)}
-                onDragOver={handleDragOver}
-                onDrop={() => handleDrop(index)}
-              >
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title || movie.name} />
-                <h3>{movie.title || movie.name}</h3>
-                {isEditMode && (
-                  <button
-                    onClick={() =>
-                      setPlaylists((prev) =>
-                        prev.map((pl) =>
-                          pl.id === playlist.id
-                            ? { ...pl, movies: pl.movies.filter((m) => m.id !== movie.id) }
-                            : pl
-                        )
-                      )
-                    }
-                    className="delete-movie"
-                  >
-                    Delete Movie
-                  </button>
-                )}
-                <button onClick={(e) => handleOpenPopup(movie, e)} className="add-to-playlist">
-                  Add to Playlist
-                </button>
-              </div>
-            ))
-          ) : (
-            <p>No movies in this playlist.</p>
-          )}
-        </div>
+  {playlist.movies.length > 0 ? (
+    playlist.movies.map((movie, index) => (
+<div
+  key={movie.id}
+  className="movie-card"
+  draggable={isEditMode} // Enable drag only in edit mode
+  onDragStart={() => handleDragStart(index)}
+  onDragOver={handleDragOver}
+  onDrop={() => handleDrop(index)}
+  onClick={() => handleCardClick(movie)} // Make the entire card clickable
+>
+  <img
+    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+    alt={movie.title || movie.name}
+  />
+  <h3>{movie.title || movie.name}</h3>
+
+  {isEditMode && (
+    <button
+      onClick={(e) => {
+        e.stopPropagation(); // Prevent click from navigating while deleting
+        setPlaylists((prev) =>
+          prev.map((pl) =>
+            pl.id === playlist.id
+              ? { ...pl, movies: pl.movies.filter((m) => m.id !== movie.id) }
+              : pl
+          )
+        );
+      }}
+      className="delete-movie"
+    >
+      Delete Movie
+    </button>
+  )}
+
+  <button
+    onClick={(e) => {
+      e.stopPropagation(); // Prevent click from navigating while opening the popup
+      handleOpenPopup(movie, e);
+    }}
+    className="add-to-playlist"
+  >
+    Add to Playlist
+  </button>
+
+  <div className="movie-info">
+    {/* Year in bottom left */}
+    <p className="release-year">
+      {movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'}
+    </p>
+
+    {/* Star and rating in bottom right */}
+    <div className="movie-rating">
+      <FontAwesomeIcon id="rate-star" icon={faStar} />
+      <p>{movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}</p>
+    </div>
+  </div>
+</div>
+    ))
+  ) : (
+    <p>No movies in this playlist.</p>
+  )}
+</div>
 
         {/* Popup for Adding to Playlist */}
         {isPopupOpen && (

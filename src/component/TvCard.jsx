@@ -61,8 +61,8 @@ function TvCard({ title, category, pages = 1, genreId, keyword }){
             <div className="tv-card-container">
                 <h2>{title}</h2>
                 <div className="Popular-tv">
-                    {shows.map((show) => (
-                        <div className="tv-film-card" key={show.id}>
+                    {shows.map((show, index) => (
+                        <div className="tv-film-card" key={`${show.id}-${index}`}>
                             <img  
                                 src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
                                 alt={show.name}

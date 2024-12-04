@@ -1,0 +1,63 @@
+.movie-details {
+  padding: 20px;
+}
+
+.details-container {
+  display: flex;
+  gap: 20px;
+}
+
+.details-info {
+  flex: 1;
+}
+
+.cast-list,
+.video-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cast-item,
+.video-item {
+  text-align: center;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.popup h2 {
+  margin-bottom: 10px;
+}
+
+.popup ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.popup ul li {
+  margin: 10px 0;
+}
+
+.popup button {
+  margin: 5px;
+}

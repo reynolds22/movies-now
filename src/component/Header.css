@@ -1,0 +1,129 @@
+header {
+    background-color: rgba(31, 31, 31, 0.90);
+    height: 10vh;
+    display: flex;
+    align-items: center; 
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+
+    justify-content: space-around;  /* Align items across the available space */
+
+}
+ 
+.icon-film{
+    margin: 5px 20px 0;
+    font-size: 60px;
+    background: none;
+    color: gold;
+    border: none;
+}
+
+.icon-film:hover{
+    cursor: pointer;
+}
+
+header input{
+    height: 40%;
+    font-size: larger;
+    border-radius: 10px;
+    width: 60%;
+    padding: 15px;
+    border: none;
+    width: 90%;
+}
+
+header input:hover{
+    cursor: text;
+}
+
+.search-button{
+    height: 63%;
+    border: none;
+    border-radius: 10px;
+    margin-left: -120px;
+    width: 5%;
+    font-size: 20px;
+    background-color: white;
+}
+
+.search-button:hover{
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none !important;
+    border: 3px solid gold;
+}
+
+header span{
+    margin: 0 20px 10px;
+    font-size: 60px;
+    font-weight: lighter;
+    margin-left: 0;
+}
+
+.sign-in{
+    height: 55%;
+    border-radius: 10px;
+    border: none;
+    width: 7%;
+    background-color: #00a6a6; 
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.sign-in:hover{
+    cursor: pointer;
+    background-color: gold;
+}
+
+.menu-button{
+    margin-left: 85px;
+    background-color: rgba(31, 31, 31, 0);
+    border: none;
+    color: #00a6a6; 
+    font-size: 50px;
+    margin-right: 25px;
+}
+
+.menu-button:hover{
+    cursor: pointer;
+    color: gold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    width: 60%;  /* Adjust width as needed */
+}
+
+.search-togles {
+    height: 100%;
+    width: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 3px;
+}
+
+.search-togles button {
+    height: 60%;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.search-togles button:hover {
+    border: 2px solid #00a6a6;
+    cursor: pointer; 
+}
+
+.search-togles .active {
+    background-color: gold;  /* Highlight the active button */
+}

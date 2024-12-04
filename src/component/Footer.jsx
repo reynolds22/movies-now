@@ -11,7 +11,7 @@ function Footer() {
         <h3>Movies Now</h3>
       </div>
       <div className="pro-sources">
-        <h3>Project Sources</h3>
+        <h3>Project Sources</h3> 
         <hr />
         <ul>
           <li>TMDB - API for movie info</li>
@@ -23,7 +23,7 @@ function Footer() {
         </ul>
       </div>
       <div>
-        <h3>Social</h3>
+        <h3 className='social-color'>Social</h3>
         <hr />
         <div className="social-icons">
           <FontAwesomeIcon icon={faInstagram} className="icons" />

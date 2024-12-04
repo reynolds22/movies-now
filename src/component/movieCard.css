@@ -1,138 +1,130 @@
 /* General container styling */
 .card-container {
-    background-color: rgb(23, 23, 23);
+  background-color: rgb(23, 23, 23);
 }
 
 .Popular-movies {
-    display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Ensures smooth scroll snapping */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
-    scrollbar-width: none; /* Hides the scrollbar on Firefox */
-    -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
-    margin-left: 20px;
-    padding-bottom: 20px;
-    gap: 20px; /* Add space between the cards */
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  scroll-snap-type: x mandatory; /* smooth scroll snapping */
+  -webkit-overflow-scrolling: touch; /* scrolling mobile devices */
+  scrollbar-width: none; /* Hides the scrollbar on Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+  margin-left: 20px;
+  padding-bottom: 10px;
+  gap: 20px; /* Add space between the cards */
 }
 
 /* Hide scrollbar for cross-browser compatibility */
 .Popular-movies::-webkit-scrollbar { 
-    display: none; 
+  display: none; 
 }
 
 /* Heading styling */
 h2 {
-    margin: 50px 20px 20px;
-    font-size: 35px;
-    padding-top: 10px;
-    font-family: "Ubuntu", sans-serif;
+  margin: 50px 20px 20px;
+  font-size: 35px;
+  padding-top: 10px;
+  font-family: "Ubuntu", sans-serif;
 }
 
 /* Film card styling */
 .film-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    flex-shrink: 0;  /* Prevents the card from shrinking */
-    width: 19%;  /* Increase the card width */
-    min-height: 400px;  /* Increase the card height */
-    margin-right: 20px;  /* Adds space between cards */
-    padding: 15px;  /* Adds inner padding to the card */
-    background-color: #222;
-    box-sizing: border-box;
-    border: 2px solid #00a6a6;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;  /* Prevents the card from shrinking */
+  width: 20%;  /* Increase the card width */
+  min-height: 400px;  /* Increase the card height */
+  margin-right: 20px;  /* Adds space between cards */
+  background-color: #222;
+  box-sizing: border-box;
+  border: 2px solid #00a6a6;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px 3px 0px;
 }
 
 .film-card:hover {
-    border: 2px solid gold;
-    color: gold;
-    filter: brightness(1.1);
-    cursor: pointer;
+  border: 2px solid gold;
+  color: gold;
+  filter: brightness(1.3);
+  cursor: pointer;
 }
 
 .film-card:hover h3 {
-    color: gold;
+  color: gold;
 }
 
 /* Image inside the film card */
 .film-card img {
-    width: 90%;
-    height: auto;
-    margin-bottom: 10px;
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 /* Title inside the film card */
 .film-card h3 {
-    text-align: center;
-    margin: 5px 0;
-    color: white;
-    font-size: 16px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  margin-bottom: 20px;
+  width: 90%;
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Adds '...' at the end of text */
+  max-height: 40px; /* Restricts height to 2 lines (adjust) */
+  line-height: 40px; /* line spacing to control the title height */
 }
 
-/* .add-movie{
-    width: 100%;
-} */
-
 .stars {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    color: #00a6a6;
-    margin-bottom: 10px;  /* Adds space between stars and the button */
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-top: auto;
 }
 
 .p1, .p2 {
-    color: #00a6a6;
-    font-size: 14px;
+  color: #00a6a6;
+  font-size: 14px;
 }
 
 .p2 {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #00a6a6;
-    margin-left: auto;  /* Pushes stars to the right */
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #00a6a6;
+  margin-left: auto;  /* Pushes stars to the right */
 }
 
 /* Star color */
 #rate-star {
-    color: #00a6a6;
+  color: gold;
 }
 
 .add-movie {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: auto;  /* Ensures the button stays at the bottom */
-    border: 2px solid #00a6a6;
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-
-.add-movie:hover {
-    background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #00a6a6;
+  border-radius: 5px; 
+  cursor: pointer;
+  width: 60%;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
 }
 
 .add-movie .list-img {
-    font-size: 20px;
-    color: #000;
-    margin-right: 10px; 
-}
-
-.add-movie p {
-    font-weight: bold;
-    color: #000;
-    margin-top: 5px;
+  font-size: 20px;
+  margin-right: 10px; 
 }
 
 .add-movie:hover {
-    background-color: gold;
-    border: none;
+  background-color: gold;
+  color: black;
 }
-

@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import "./Header.css";
 
 function Header({ defaultSearchTerm = '', defaultSearchType = 'movie', toggleMenu }) {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState(defaultSearchTerm);
   const [searchType, setSearchType] = useState(defaultSearchType); // "movie" or "show"
 
-  const handleSearch = (e) => {
+  const handleSearch = (e) => { 
     e.preventDefault();
     if (searchTerm.trim()) {
       navigate(`/search/${searchTerm}/${searchType}`);
-    }
+    } 
   };
 
   return (
@@ -48,7 +49,7 @@ function Header({ defaultSearchTerm = '', defaultSearchType = 'movie', toggleMen
             Show
           </button>
         </div>
-      </form>
+      </form> 
 
       <span>|</span>
       <button className="menu-button" onClick={toggleMenu}>
