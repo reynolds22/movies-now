@@ -15,20 +15,26 @@ export default function Playlists({ playlists }) {
     <div>
       <div className="playlists-page">
         <h1>Your Playlists</h1>
-        <button className="new-playlist-btn" onClick={handleCreatePlaylist}>Create New Playlist</button>
+        <button className="new-playlist-btn" onClick={handleCreatePlaylist}>
+          Create New Playlist
+        </button>
         <div className="playlists-grid">
           {playlists.map((playlist) => (
-            <Link to={`/playlists/${playlist.id}`} key={playlist.id} className="playlist-link">
+            <Link
+              to={`/playlists/${playlist.id}`}
+              key={playlist.id}
+              className="playlist-link"
+            >
               <PlaylistCard
                 title={playlist.name}
                 description={playlist.description}
-                image={playlist.image || (playlist.movies.length > 0 ? `https://image.tmdb.org/t/p/w500${playlist.movies[0].poster_path}` : 'default.jpg')}
+                image={playlist.image || 'default.jpg'}
               />
             </Link>
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

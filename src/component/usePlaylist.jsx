@@ -17,6 +17,31 @@ export default function usePlaylists() {
     setPlaylists((prev) => [...prev, newPlaylist]);
   };
 
+  const addShowToPlaylist = (playlistId, show) => {
+    setPlaylists((prev) =>
+        prev.map((playlist) => {
+            if (playlist.id === playlistId) {
+                // Avoid adding duplicate shows
+                const isDuplicate = playlist.shows?.some((existingShow) => existingShow.id === show.id);
+                if (isDuplicate) return playlist;
+
+                const updatedPlaylist = {
+                    ...playlist,
+                    shows: playlist.shows ? [...playlist.shows, show] : [show],
+                };
+
+                // Set the first show's poster as the cover image if no image exists
+                if (!playlist.image && show.poster_path) {
+                    updatedPlaylist.image = `https://image.tmdb.org/t/p/w500${show.poster_path}`;
+                }
+
+                return updatedPlaylist;
+            }
+            return playlist;
+        })
+    );
+};
+
   // Add a movie to a playlist
   const addMovieToPlaylist = (playlistId, movie) => {
     setPlaylists((prev) =>
@@ -73,11 +98,12 @@ export default function usePlaylists() {
 
   return {
     playlists,
-    setPlaylists, // Ensure this is returned
+    setPlaylists,
     addPlaylist,
     addMovieToPlaylist,
+    addShowToPlaylist, // Return this function
     deletePlaylist,
     deleteMovieFromPlaylist,
     rearrangeMoviesInPlaylist,
-  };
+};
 }

@@ -1,26 +1,63 @@
 /* PlaylistCard.css */
 .playlist-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 2px solid #00a6a6; 
+  border-radius: 10px;
   overflow: hidden;
-  width: 200px;
-  text-align: center;
-  margin: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 150px; /* Fixed height for consistency */
+  display: flex;
+  align-items: center; /* Vertically centers content */
+  background-color: #1c1c1e; /* Background color for contrast */
+  position: relative; /* Ensure child elements position correctly */
+  transition: transform 0.2s, box-shadow 0.2s; /* Hover effect */
 }
 
-.playlist-image {
+.playlist-card:hover {
+  transform: scale(1.02); /* Slight scaling on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  border: 2px solid gold; 
+}
+
+/* Image container */
+.img-con {
+  width: 30%; /* Proportion of the card taken by the image */
+  height: 100%;
+  overflow: hidden; /* Ensures the image doesn't overflow */
+}
+
+.img-con img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the space proportionally */
+  border-radius: 10px 0 0 10px; /* Rounds the left corners */
+  transform: scale(1.1); /* Zooms the image out slightly */
+}
+
+/* Playlist details */
+.playlist-details {
+  width: 70%; /* Takes up the remaining space */
+  padding: 15px; /* Adds spacing for better visibility */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers text vertically */
+  text-align: left; /* Aligns text to the left */
+  overflow: hidden; /* Prevents overflowing content */
 }
 
 .playlist-card h3 {
-  margin: 10px 0 5px;
-  font-size: 1.2em;
+  font-size: 18px; /* Clear, prominent title */
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: gold; /* Gold title for visual hierarchy */
 }
 
 .playlist-card p {
-  font-size: 0.9em;
-  color: #555;
+  font-size: 14px; /* Subtle, smaller description */
+  color: #bbb; /* Lighter text for contrast */
+  line-height: 1.4; /* Improves readability */
+  overflow: hidden; /* Prevents overflowing text */
+  text-overflow: ellipsis; /* Adds '...' for truncated text */
+  display: -webkit-box; /* Enables multi-line ellipsis */
+  -webkit-line-clamp: 2; /* Limits to 2 lines */
+  -webkit-box-orient: vertical; /* Required for line clamp */
 }

@@ -1,46 +1,61 @@
-.add-to-playlist-popup {
+.popup-container {
   position: absolute;
   z-index: 1000;
   background-color: black;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid gold;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 250px;
 }
 
-.theX{
+.popup-container h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: gold;
+  text-align: center;
+}
+
+.popup-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.popup-container ul li {
+  margin-bottom: 10px;
+}
+
+.popup-container button {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.theX button{
-  align-self: flex-end;
-  background-color: black;
+  padding: 10px;
+  background-color: #00a6a6;
   color: white;
   border: none;
-  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.add-to-playlist-popup h3{
-  font-size: 16px;
-  padding-right: 15px;
-  color: white;
+.popup-container button:hover {
+  background-color: gold;
+  color: black;
 }
-  
-  .add-to-playlist-popup ul {
-    list-style: none;
-    padding: 5px;
-  }
-  
-  .add-to-playlist-popup ul li {
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  .add-to-playlist-popup ul li:hover {
-    background-color: gold;
-    color: black;
-    border-radius: 3px;
-  }
-  
+
+.popup-container .close-btn {
+  width: auto; /* Make the button smaller */
+  padding: 5px 10px; /* Adjust padding for a smaller size */
+  margin-top: 10px;
+  background-color: #333; /* Darker background */
+  color: #fff; /* Light text color */
+  border: 1px solid #555;
+  font-size: 12px; /* Smaller font size */
+  align-self: flex-end; /* Aligns the button to the right */
+}
+
+.popup-container .close-btn:hover {
+  background-color: #555;
+  color: white;
+  border: 1px solid gold;
+}

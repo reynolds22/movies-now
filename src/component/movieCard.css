@@ -3,6 +3,10 @@
   background-color: rgb(23, 23, 23);
 }
 
+.card-container h2 {
+  color: #00a6a6;
+}
+
 .Popular-movies {
   display: flex;
   overflow-x: auto; /* Enables horizontal scrolling */
@@ -25,7 +29,7 @@ h2 {
   margin: 50px 20px 20px;
   font-size: 35px;
   padding-top: 10px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", sans-serif; 
 }
 
 /* Film card styling */
@@ -40,7 +44,7 @@ h2 {
   margin-right: 20px;  /* Adds space between cards */
   background-color: #222;
   box-sizing: border-box;
-  border: 2px solid #00a6a6;
+  border: 2px solid #00a6a6; 
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px 3px 0px;

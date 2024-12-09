@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
 .playlist-detail {
   text-align: center;
   padding: 20px;
@@ -39,6 +48,7 @@
 .playlist-info h2 {
   font-size: 30px;
   margin: 10px 0;
+  color: #00a6a6;
 }
 
 .playlist-info p {
@@ -50,69 +60,110 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 15px;
+  gap: 10px;
   margin-top: 30px;
 }
 
 /* Default Movie Card Styles */
-.movie-card {
-  width: 150px;
-  text-align: center;
+.film-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;  /* Prevents the card from shrinking */
+  width: 20%; 
+  min-height: 400px;  /* Increase the card height */
+  margin-right: 20px;  /* Adds space between cards */
   background-color: #222;
-  padding: 10px;
-  border-radius: 10px;
+  box-sizing: border-box;
   border: 2px solid #00a6a6;
-  transition: border-color 0.3s ease; /* Smooth transition for border color */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px 3px 0px;
 }
 
-/* Red Border on Movie Card When Hovering Over Delete Button */
-.movie-card .delete-movie:hover {
-  border-color: red; /* Change border color of button to red */
-}
-
-.movie-card img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.movie-card h3 {
-  font-size: 14px;
-  color: white;
-  margin-top: 10px;
-}
-
-.add-to-playlist, .delete-movie, .confirm-delete, .cancel-delete {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  color: white;
-  border-radius: 5px;
+.film-card:hover {
+  border: 2px solid gold;
+  color: gold;
+  filter: brightness(1.3);
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.add-to-playlist, .delete-movie {
+.film-card:hover h3 {
+  color: gold;
+}
+
+/* Image inside the film card */
+.film-card img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+/* Title inside the film card */
+.film-card h3 {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  margin-bottom: 10px;
+  width: 90%;
+  overflow: hidden; 
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Adds '...' at the end of text */
+  max-height: 40px; /* Restricts height to 2 lines (adjust) */
+  line-height: 40px; /* line spacing to control the title height */
+}
+
+.stars {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.p1, .p2 {
+  color: #00a6a6;
+  font-size: 14px;
+}
+
+.p2 {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #00a6a6;
+  margin-left: auto;  /* Pushes stars to the right */
+}
+
+/* Star color */
+#rate-star {
+  color: gold;
+}
+
+.add-movie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
   background-color: #00a6a6;
+  border-radius: 5px; 
+  cursor: pointer;
+  width: 80% !important;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
 }
 
-.add-to-playlist:hover, .delete-movie:hover {
-  background-color: #007b7b;
+.add-movie .list-img {
+  font-size: 20px;
+  margin-right: 10px; 
 }
 
-.confirm-delete {
-  background: red;
-}
-
-.confirm-delete:hover {
-  background: darkred;
-}
-
-.cancel-delete {
-  background: gray;
-}
-
-.cancel-delete:hover {
-  background: darkgray;
+.add-movie:hover {
+  background-color: gold;
+  color: black;
 }
 
 .delete-confirmation-overlay, .confirmation-popup {
@@ -131,36 +182,6 @@
   background-color:
 }
 
-.add-to-playlist {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  background-color: #00a6a6;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.add-to-playlist:hover {
-  background-color: #007b7b;
-}
-
-.upload-img-button {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  background-color: #00a6a6;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.upload-img-button:hover {
-  background-color: #007b7b;
-}
-
 .movie-card[draggable="true"] {
   cursor: grab;
 }
@@ -170,17 +191,9 @@
   opacity: 0.6; /* Provide visual feedback while dragging */
 }
 
-.movie-card:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease;
-}
-
-/* PlaylistDetail.css */
-
-/* Ensure the parent container of the info boxes is positioned correctly */
 .playlist-info {
   margin-top: 20px;
-  position: relative; /* Set this to ensure child absolute positioning works */
+  position: relative; 
 }
 
 /* Info Boxes */
@@ -210,48 +223,4 @@
   position: absolute;
   right: 100px; /* Position it to the right of the playlist image */
   top: 100px; /* Align it vertically */
-}
-
-/* Other PlaylistDetail Styles */
-.playlist-detail {
-  text-align: center;
-  padding: 20px;
-  margin-top: 100px;
-}
-
-.playlist-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.movie-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin-top: 10px;
-  padding: 0 5px;
-  color: white;
-}
-
-.release-year {
-  font-size: 14px;
-  color: #00a6a6; /* Adjust color as needed */
-}
-
-.movie-rating {
-  display: flex;
-  align-items: center;
-}
-
-.movie-rating #rate-star {
-  color: gold;
-  margin-right: 5px;
-}
-
-.movie-rating p {
-  font-size: 14px;
-  color: #00a6a6; /* Adjust color as needed */
 }

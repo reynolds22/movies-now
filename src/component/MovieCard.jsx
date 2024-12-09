@@ -16,7 +16,7 @@ export default function MovieCard({
   genreId,
   keyword,
   playlists,
-  addMovieToPlaylist,
+  addMovieToPlaylist, 
 }) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -115,7 +115,7 @@ export default function MovieCard({
             >
               <FontAwesomeIcon className="list-img" icon={faList} />
               <p>Add Movie</p>
-            </button>
+            </button> 
             <div className="stars">
               <p className="p1"> 
                 {film.release_date ? film.release_date.slice(0, 4) : "N/A"}

@@ -4,7 +4,7 @@ import AddToPlaylistPopup from './AddToPlaylistPopup';
 import './PlaylistDetail.css';
 import Footer from './Footer';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faList, faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlaylist }) {
   const { id } = useParams();
@@ -144,7 +144,7 @@ export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlay
     playlist.movies.map((movie, index) => (
 <div
   key={movie.id}
-  className="movie-card"
+  className="film-card"
   draggable={isEditMode} // Enable drag only in edit mode
   onDragStart={() => handleDragStart(index)}
   onDragOver={handleDragOver}
@@ -169,7 +169,7 @@ export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlay
           )
         );
       }}
-      className="delete-movie"
+      className="add-movie"
     >
       Delete Movie
     </button>
@@ -180,19 +180,20 @@ export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlay
       e.stopPropagation(); // Prevent click from navigating while opening the popup
       handleOpenPopup(movie, e);
     }}
-    className="add-to-playlist"
+    className="add-movie"
   >
-    Add to Playlist
+    <FontAwesomeIcon className="list-img" icon={faList} />
+    <p>Add to playlist</p>
   </button>
 
-  <div className="movie-info">
+  <div className="stars">
     {/* Year in bottom left */}
-    <p className="release-year">
+    <p className="p1">
       {movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'}
     </p>
 
     {/* Star and rating in bottom right */}
-    <div className="movie-rating">
+    <div className="p2">
       <FontAwesomeIcon id="rate-star" icon={faStar} />
       <p>{movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}</p>
     </div>
@@ -218,6 +219,6 @@ export default function PlaylistDetail({ playlists, setPlaylists, addMovieToPlay
         )}
       </div>
       <Footer />
-    </div>
+    </div> 
   );
 }

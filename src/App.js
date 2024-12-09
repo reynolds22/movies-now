@@ -19,10 +19,16 @@ function App() {
       <Layout>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route
-              path="/"
-              element={<MoviesNow playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />}
-            />
+          <Route
+            path="/"
+            element={
+              <MoviesNow
+                playlists={playlists}
+                setPlaylists={setPlaylists} // Pass setPlaylists here
+                addMovieToPlaylist={addMovieToPlaylist}
+              />
+            }
+          />
             <Route
               path="/search/:query/:type"
               element={
@@ -60,4 +66,3 @@ function App() {
 }
 
 export default App;
- 
