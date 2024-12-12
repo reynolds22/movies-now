@@ -89,6 +89,7 @@ h2 {
   justify-content: space-between;
   width: 95%;
   margin-top: auto;
+  margin-bottom: 5px;
 }
 
 .p1, .p2 {
@@ -107,6 +108,7 @@ h2 {
 /* Star color */
 #rate-star {
   color: gold;
+  margin-right: 2px;
 }
 
 .add-movie {

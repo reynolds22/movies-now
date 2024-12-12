@@ -6,93 +6,90 @@ export default function usePlaylists() {
     return savedPlaylists ? JSON.parse(savedPlaylists) : [];
   });
 
-  // Sync playlists state with localStorage
   useEffect(() => {
+    console.log("Updated Playlists:", playlists); // Log playlists after every update
     localStorage.setItem("playlists", JSON.stringify(playlists));
   }, [playlists]);
 
-  // Add a new playlist
-  const addPlaylist = (name, description, image = null) => {
-    const newPlaylist = { id: Date.now(), name, description, image, movies: [] };
+  const addPlaylist = (name, description) => {
+    const newPlaylist = {
+      id: Date.now(),
+      name,
+      description,
+      image: null,
+      movies: [],
+      shows: [],
+    };
     setPlaylists((prev) => [...prev, newPlaylist]);
   };
 
   const addShowToPlaylist = (playlistId, show) => {
-    setPlaylists((prev) =>
-        prev.map((playlist) => {
-            if (playlist.id === playlistId) {
-                // Avoid adding duplicate shows
-                const isDuplicate = playlist.shows?.some((existingShow) => existingShow.id === show.id);
-                if (isDuplicate) return playlist;
-
-                const updatedPlaylist = {
-                    ...playlist,
-                    shows: playlist.shows ? [...playlist.shows, show] : [show],
-                };
-
-                // Set the first show's poster as the cover image if no image exists
-                if (!playlist.image && show.poster_path) {
-                    updatedPlaylist.image = `https://image.tmdb.org/t/p/w500${show.poster_path}`;
-                }
-
-                return updatedPlaylist;
-            }
-            return playlist;
-        })
-    );
-};
-
-  // Add a movie to a playlist
-  const addMovieToPlaylist = (playlistId, movie) => {
+    console.log("Adding show to playlist:", show); // Debugging incoming data
     setPlaylists((prev) =>
       prev.map((playlist) => {
         if (playlist.id === playlistId) {
-          // Check if the movie already exists in the playlist
-          if (playlist.movies.some((existingMovie) => existingMovie.id === movie.id)) {
-            return playlist; // Return unchanged if the movie already exists
-          }
+          const isDuplicate = playlist.shows.some((s) => s.id === show.id);
+          if (isDuplicate) return playlist;
 
-          const updatedPlaylist = {
-            ...playlist,
-            movies: [...playlist.movies, movie],
+          const standardizedShow = {
+            id: show.id,
+            type: "tv",
+            title: show.title || "Untitled Show",
+            poster_path: show.poster_path || null,
+            release_date: show.release_date || "N/A",
+            vote_average: show.vote_average || 0,
+            original_language: show.original_language || "N/A",
+            genre_ids: show.genre_ids || [],
+            overview: show.overview || "",
+            backdrop_path: show.backdrop_path || null,
           };
 
-          // Set the first movie's poster as the cover image if no image exists
-          if (!playlist.image && movie.poster_path) {
-            updatedPlaylist.image = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-          }
-
-          return updatedPlaylist;
+          return {
+            ...playlist,
+            shows: [...playlist.shows, standardizedShow],
+            image:
+              playlist.image ||
+              (show.poster_path &&
+                `https://image.tmdb.org/t/p/w500${show.poster_path}`),
+          };
         }
         return playlist;
       })
     );
   };
 
-  // Delete a playlist
-  const deletePlaylist = (playlistId) => {
-    setPlaylists((prev) => prev.filter((playlist) => playlist.id !== playlistId));
-  };
-
-  // Delete a movie from a playlist
-  const deleteMovieFromPlaylist = (playlistId, movieId) => {
+  const addMovieToPlaylist = (playlistId, movie) => {
+    console.log("Adding movie to playlist:", movie); // Debugging incoming data
     setPlaylists((prev) =>
-      prev.map((playlist) =>
-        playlist.id === playlistId
-          ? { ...playlist, movies: playlist.movies.filter((movie) => movie.id !== movieId) }
-          : playlist
-      )
-    );
-  };
+      prev.map((playlist) => {
+        if (playlist.id === playlistId) {
+          const isDuplicate = playlist.movies.some((m) => m.id === movie.id);
+          if (isDuplicate) return playlist;
 
-  // Rearrange movies in a playlist
-  const rearrangeMoviesInPlaylist = (playlistId, newMoviesOrder) => {
-    setPlaylists((prev) =>
-      prev.map((playlist) =>
-        playlist.id === playlistId
-          ? { ...playlist, movies: newMoviesOrder }
-          : playlist
-      )
+          const standardizedMovie = {
+            id: movie.id,
+            type: "movie",
+            title: movie.title || "Untitled Movie",
+            poster_path: movie.poster_path || null,
+            release_date: movie.release_date || "N/A",
+            vote_average: movie.vote_average || 0,
+            original_language: movie.original_language || "N/A",
+            genre_ids: movie.genre_ids || [],
+            overview: movie.overview || "",
+            backdrop_path: movie.backdrop_path || null,
+          };
+
+          return {
+            ...playlist,
+            movies: [...playlist.movies, standardizedMovie],
+            image:
+              playlist.image ||
+              (movie.poster_path &&
+                `https://image.tmdb.org/t/p/w500${movie.poster_path}`),
+          };
+        }
+        return playlist;
+      })
     );
   };
 
@@ -101,9 +98,6 @@ export default function usePlaylists() {
     setPlaylists,
     addPlaylist,
     addMovieToPlaylist,
-    addShowToPlaylist, // Return this function
-    deletePlaylist,
-    deleteMovieFromPlaylist,
-    rearrangeMoviesInPlaylist,
-};
+    addShowToPlaylist,
+  };
 }

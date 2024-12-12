@@ -1,4 +1,13 @@
-/* PlaylistCard.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
 .playlist-card {
   border: 2px solid #00a6a6; 
   border-radius: 10px;
@@ -48,12 +57,12 @@
   font-size: 18px; /* Clear, prominent title */
   margin-bottom: 5px;
   font-weight: bold;
-  color: gold; /* Gold title for visual hierarchy */
+  color: gold !important; /* Gold title for visual hierarchy */
 }
 
 .playlist-card p {
   font-size: 14px; /* Subtle, smaller description */
-  color: #bbb; /* Lighter text for contrast */
+  color: #bbb !important; 
   line-height: 1.4; /* Improves readability */
   overflow: hidden; /* Prevents overflowing text */
   text-overflow: ellipsis; /* Adds '...' for truncated text */

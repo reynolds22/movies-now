@@ -12,29 +12,39 @@ const PlaylistDetail = React.lazy(() => import("./component/PlaylistDetail"));
 const MovieDetails = React.lazy(() => import("./component/MovieDetails"));
 
 function App() {
-  const { playlists, setPlaylists, addPlaylist, addMovieToPlaylist } = usePlaylists();
+  const {
+    playlists,
+    setPlaylists,
+    addPlaylist,
+    addMovieToPlaylist,
+    addShowToPlaylist, // Ensure this is included
+  } = usePlaylists();
 
   return (
     <Router>
       <Layout>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-          <Route
-            path="/"
-            element={
-              <MoviesNow
-                playlists={playlists}
-                setPlaylists={setPlaylists} // Pass setPlaylists here
-                addMovieToPlaylist={addMovieToPlaylist}
-              />
-            }
-          />
             <Route
-              path="/search/:query/:type"
+              path="/"
               element={
-                <SearchResult playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />
+                <MoviesNow
+                  playlists={playlists}
+                  setPlaylists={setPlaylists} // Pass setPlaylists here
+                  addMovieToPlaylist={addMovieToPlaylist}
+                />
               }
             />
+              <Route
+                path="/search/:query/:type"
+                element={
+                  <SearchResult
+                    playlists={playlists}
+                    addMovieToPlaylist={addMovieToPlaylist}
+                    addShowToPlaylist={addShowToPlaylist} // Add this
+                  />
+                }
+              />
             <Route path="/about" element={<About />} />
             <Route path="/playlists" element={<Playlists playlists={playlists} />} />
             <Route
@@ -48,6 +58,7 @@ function App() {
                   playlists={playlists}
                   setPlaylists={setPlaylists}
                   addMovieToPlaylist={addMovieToPlaylist}
+                  addShowToPlaylist={addShowToPlaylist} // Ensure this is passed
                 />
               }
             />

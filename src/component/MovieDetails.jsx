@@ -17,48 +17,50 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
   const API_KEY = "808196157aa973f359929571d9321e60";
 
   useEffect(() => {
+    console.log("Fetching details for:", { id, type }); // Log ID and type
+  
     const fetchMovieDetails = async () => {
       try {
-        const endpointType = type === "movie" ? "movie" : "tv"; // Ensure 'tv' is used for TV shows
-
+        const endpointType = type === "movie" ? "movie" : "tv";
+  
         // Fetch Details
         const detailsRes = await fetch(
           `https://api.themoviedb.org/3/${endpointType}/${id}?api_key=${API_KEY}&language=en-US`
         );
         const detailsData = await detailsRes.json();
-        console.log("Details Data:", detailsData); // Debug API response
-
+        console.log("Details Data:", detailsData); // Log fetched data
+        setMovie(detailsData);
+  
         // Fetch Credits
         const creditsRes = await fetch(
           `https://api.themoviedb.org/3/${endpointType}/${id}/credits?api_key=${API_KEY}`
         );
         const creditsData = await creditsRes.json();
-        console.log("Credits Data:", creditsData); // Debug API response
-
+        console.log("Credits Data:", creditsData); // Log cast data
+        setCast(creditsData.cast.slice(0, 10)); // Set top 10 cast members
+  
         // Fetch Videos
         const videosRes = await fetch(
           `https://api.themoviedb.org/3/${endpointType}/${id}/videos?api_key=${API_KEY}&language=en-US`
         );
         const videosData = await videosRes.json();
-
-        // Update State
-        setMovie(detailsData);
-        setCast(creditsData.cast.slice(0, 10)); // Show top 10 cast members
+        console.log("Videos Data:", videosData); // Log fetched videos data
         const trailer = videosData.results.find((video) => video.type === "Trailer");
-        setTrailerKey(trailer?.key || null);
-        setIsLoading(false);
+        setTrailerKey(trailer?.key || null); // Set trailer key
+  
+        setIsLoading(false); // Mark loading as complete
       } catch (error) {
         console.error("Failed to fetch movie details:", error);
-        setIsLoading(false);
+        setIsLoading(false); // Mark loading as complete even if there's an error
       }
     };
-
-    fetchMovieDetails();
+  
+    fetchMovieDetails(); 
   }, [id, type]);
-
+      
   const handleAddToPlaylist = () => {
     if (selectedPlaylistId) {
-      const standardizedMovie = {
+      const standardizedItem = {
         id: movie.id,
         title: movie.title || movie.name || "Untitled",
         poster_path: movie.poster_path || null,
@@ -66,8 +68,9 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
         vote_average: movie.vote_average || 0,
       };
   
-      addMovieToPlaylist(selectedPlaylistId, standardizedMovie);
-      setIsPopupOpen(false); // Close popup after adding
+      console.log("Adding item to playlist:", standardizedItem); // Debugging
+      addMovieToPlaylist(selectedPlaylistId, standardizedItem);
+      setIsPopupOpen(false);
     }
   };
   

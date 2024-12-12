@@ -7,21 +7,22 @@ export default function AddToPlaylistPopup({ playlists, onAdd, onClose, position
             className="popup-container"
             style={{ top: position.top, left: position.left }}
         >
-            <h3>Select a Playlist</h3>
+            <h3>Select a Playlist</h3> 
             <ul>
                 {playlists.map((playlist) => (
                     <li key={playlist.id}>
-                        <button
-                            onClick={() => {
-                                if (onAdd) {
-                                    onAdd(playlist.id); // Call the onAdd function with playlist ID
-                                } else {
-                                    console.error("onAdd function is missing");
-                                }
-                            }}
-                        >
-                            {playlist.name}
-                        </button>
+<button
+  onClick={() => {
+    console.log("Adding to Playlist ID:", playlist.id); // Debug playlist ID
+    if (onAdd) {
+      onAdd(playlist.id); // Call the onAdd function with playlist ID
+    } else {
+      console.error("onAdd function is missing");
+    }
+  }}
+>
+  {playlist.name}
+</button>
                     </li>
                 ))}
             </ul>

@@ -7,15 +7,15 @@ import "./Header.css";
 import AddToPlaylistPopup from "./AddToPlaylistPopup";
 import "./SearchResult.css"; 
 
-function SearchResult({ playlists, addMovieToPlaylist }) {
+function SearchResult({ playlists, addMovieToPlaylist, addShowToPlaylist }) {
   const { query, type } = useParams();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 
   const API_KEY = "808196157aa973f359929571d9321e60";
@@ -32,6 +32,7 @@ function SearchResult({ playlists, addMovieToPlaylist }) {
         const data = await response.json();
 
         if (response.ok) {
+          console.log("Fetched search results:", data.results);
           setResults(data.results || []);
         } else {
           setError("Failed to fetch data");
@@ -51,21 +52,58 @@ function SearchResult({ playlists, addMovieToPlaylist }) {
     navigate(`/details/${type}/${item.id}`);
   };
 
-  const handleOpenPopup = (movie, button) => {
+  const handleOpenPopup = (item, button) => {
     const buttonRect = button.getBoundingClientRect();
     setPopupPosition({
       top: buttonRect.bottom + window.scrollY,
       left: buttonRect.left + window.scrollX,
     });
-    setSelectedMovie(movie);
+    setSelectedItem(item);
     setIsPopupOpen(true);
   };
 
   const handleAddToPlaylist = (playlistId) => {
-    addMovieToPlaylist(playlistId, selectedMovie);
-    setIsPopupOpen(false); // Close the popup after adding
+    console.log("Selected Item before adding:", selectedItem);
+  
+    if (type === "tv" || selectedItem.first_air_date) {
+      console.log("Adding TV show to playlist");
+      const standardizedShow = {
+        id: selectedItem.id,
+        type: "tv",
+        title: selectedItem.name || selectedItem.title || "Untitled Show",
+        poster_path: selectedItem.poster_path || null,
+        release_date: selectedItem.first_air_date || "N/A",
+        vote_average: selectedItem.vote_average || 0,
+        original_language: selectedItem.original_language || "N/A",
+        genre_ids: selectedItem.genre_ids || [],
+        overview: selectedItem.overview || "",
+        backdrop_path: selectedItem.backdrop_path || null,
+      };
+      console.log("Invoking addShowToPlaylist with:", playlistId, standardizedShow);
+      addShowToPlaylist(playlistId, standardizedShow);
+    } else if (type === "movie" || selectedItem.release_date) {
+      console.log("Adding movie to playlist");
+      const standardizedMovie = {
+        id: selectedItem.id,
+        type: "movie",
+        title: selectedItem.title || "Untitled Movie",
+        poster_path: selectedItem.poster_path || null,
+        release_date: selectedItem.release_date || "N/A",
+        vote_average: selectedItem.vote_average || 0,
+        original_language: selectedItem.original_language || "N/A",
+        genre_ids: selectedItem.genre_ids || [],
+        overview: selectedItem.overview || "",
+        backdrop_path: selectedItem.backdrop_path || null,
+      };
+      console.log("Invoking addMovieToPlaylist with:", playlistId, standardizedMovie);
+      addMovieToPlaylist(playlistId, standardizedMovie);
+    } else {
+      console.error("Unknown type for selected item:", selectedItem);
+    }
+  
+    setIsPopupOpen(false); // Close popup after adding
   };
-
+          
   return (
     <div>
       <div className="search-results-container">
@@ -83,7 +121,7 @@ function SearchResult({ playlists, addMovieToPlaylist }) {
                 key={item.id}
                 className="film-card"
                 onClick={() => handleCardClick(item)}
-                style={{ cursor: "pointer" }} // Add pointer cursor
+                style={{ cursor: "pointer" }}
               >
                 <img
                   src={`https://image.tmdb.org/t/p/w200${item.poster_path}`}
@@ -93,7 +131,7 @@ function SearchResult({ playlists, addMovieToPlaylist }) {
                 <button
                   className="add-movie"
                   onClick={(e) => {
-                    e.stopPropagation(); // Prevent card click
+                    e.stopPropagation();
                     handleOpenPopup(item, e.target);
                   }}
                 >
@@ -110,7 +148,7 @@ function SearchResult({ playlists, addMovieToPlaylist }) {
                   </p>
                   <div className="p2">
                     <FontAwesomeIcon id="rate-star" icon={faStar} />
-                    <p>{item.vote_average.toFixed(1)}</p>
+                    <p>{item.vote_average ? item.vote_average.toFixed(1) : "N/A"}</p>
                   </div>
                 </div>
               </div>

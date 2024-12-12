@@ -24,8 +24,6 @@ export default function SlidingMenu({ isOpen, closeMenu }) {
     closeMenu();    // Close the sliding menu after navigation
   }; 
 
-  console.log('SlidingMenu Props:', { isOpen, closeMenu });
-
   return ( 
     <>
       <div className={`sliding-menu ${isOpen ? 'open' : ''}`}>
