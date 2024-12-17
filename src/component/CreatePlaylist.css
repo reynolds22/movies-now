@@ -35,6 +35,7 @@
     color: #00a6a6;
     text-align: center;
     border: 1px solid gold;
+    margin-bottom: 40px;
 }
 .playlist-details textarea{
     border: none;  

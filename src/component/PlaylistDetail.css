@@ -20,18 +20,33 @@ body {
   margin: 20px 0;
 }
 
-.back-arrow, .edit-button, .back-button {
+.back-arrow, .back-button {
   font-size: 18px;
   cursor: pointer;
-  background-color: transparent;
   border: none;
-  color: #00a6a6;
+  color: black;
   padding: 5px 10px;
-  transition: color 0.3s ease;
+  background-color: #00a6a6;
+  border-radius: 5px;
 }
 
-.back-arrow:hover, .edit-button:hover, .back-button:hover {
-  color: gold;
+.back-arrow:hover, .back-button:hover {
+  background-color: gold;
+}
+
+.edit-button{
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  background-color: black;
+  border-radius: 5px;
+  border: 2px dotted gold;
+}
+
+.edit-button:hover{
+background-color: gold;
 }
 
 .playlist-info {
@@ -39,16 +54,17 @@ body {
 }
 
 .playlist-image {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
+  border: 2px solid #00a6a6;
 }
 
 .playlist-info h2 {
   font-size: 30px;
   margin: 10px 0;
-  color: #00a6a6;
+  color: gold;
 }
 
 .playlist-info p {
@@ -200,15 +216,13 @@ body {
 .info-box {
   position: absolute; /* Ensure absolute positioning */
   width: 200px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #00a6a6;
+  padding: 15px;
   border-radius: 5px;
-  color: #333;
   font-size: 14px;
   text-align: left;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10; /* Ensure it stays above other elements */
+  background: black;
+  border: 2px dotted #00a6a6;
 }
 
 /* Left Info Box */
@@ -223,4 +237,50 @@ body {
   position: absolute;
   right: 100px; /* Position it to the right of the playlist image */
   top: 100px; /* Align it vertically */
+}
+
+.action-buttons {
+  margin-top: 16px;
+  height: 30px;
+}
+
+.save-img-button {
+  margin-right: 10px;
+  padding: 5px;
+  background-color: black;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border: 2px dotted gold;
+}
+
+.save-img-button:hover {
+  background-color: gold; 
+  color: black;
+}
+
+.delete-playlist-button {
+  padding: 5px;
+  background-color: black;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border: 2px dotted red;
+}
+
+.delete-playlist-button:hover {
+  background-color: red;
+
+}
+
+.action-button:disabled {
+  background-color: #e0e0e0;
+  color: #a0a0a0;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }

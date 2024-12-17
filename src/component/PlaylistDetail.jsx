@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AddToPlaylistPopup from "./AddToPlaylistPopup";
 import "./PlaylistDetail.css";
-import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,11 +24,6 @@ export default function PlaylistDetail({
   if (!playlist) {
     return <p>Playlist not found</p>;
   }
-  
-  // Add these logs here
-  console.log("Rendering playlist:", playlist);
-  console.log("Movies in Playlist:", playlist.movies);
-  console.log("Shows in Playlist:", playlist.shows);
   
   // Handle Drag Start
   const handleDragStart = (index) => {
@@ -104,7 +98,6 @@ export default function PlaylistDetail({
   
   // Handle Card Click
   const handleCardClick = (item) => {
-    console.log("Clicked Item:", item, "Type:", item.type);
     navigate(`/details/${item.type}/${item.id}`);
   };
       
@@ -127,7 +120,7 @@ export default function PlaylistDetail({
           <img
             className="playlist-image"
             src={playlist.image || "default.jpg"}
-            alt={playlist.name}
+            alt="Add movies/shows!"
           />
           <h2>{playlist.name}</h2>
           <p>{playlist.description}</p>
@@ -301,10 +294,8 @@ export default function PlaylistDetail({
           playlists={playlists}
           onAdd={(playlistId) => {
             if (selectedItem?.first_air_date) {
-              console.log("Adding show to playlist from PlaylistDetail:", selectedItem);
               addShowToPlaylist(playlistId, selectedItem); // This must be correctly passed
             } else {
-              console.log("Adding movie to playlist from PlaylistDetail:", selectedItem);
               addMovieToPlaylist(playlistId, selectedItem);
             }
             setIsPopupOpen(false);
@@ -314,7 +305,6 @@ export default function PlaylistDetail({
         />
         )}
       </div>
-      <Footer />
     </div>
   );
 }

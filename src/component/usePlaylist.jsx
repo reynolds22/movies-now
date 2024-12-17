@@ -3,13 +3,18 @@ import { useState, useEffect } from "react";
 export default function usePlaylists() {
   const [playlists, setPlaylists] = useState(() => {
     const savedPlaylists = localStorage.getItem("playlists");
-    return savedPlaylists ? JSON.parse(savedPlaylists) : [];
+    try {
+      return savedPlaylists ? JSON.parse(savedPlaylists) : [];
+    } catch (error) {
+      console.error("Error parsing playlists from localStorage:", error);
+      return [];
+    }
   });
 
   useEffect(() => {
-    console.log("Updated Playlists:", playlists); // Log playlists after every update
     localStorage.setItem("playlists", JSON.stringify(playlists));
   }, [playlists]);
+
 
   const addPlaylist = (name, description) => {
     const newPlaylist = {
@@ -20,76 +25,38 @@ export default function usePlaylists() {
       movies: [],
       shows: [],
     };
-    setPlaylists((prev) => [...prev, newPlaylist]);
-  };
-
-  const addShowToPlaylist = (playlistId, show) => {
-    console.log("Adding show to playlist:", show); // Debugging incoming data
+  
+    setPlaylists((prev) => {
+      const updatedPlaylists = [...prev, newPlaylist];
+      return updatedPlaylists;
+    });
+    };
+      
+  const addMovieToPlaylist = (playlistId, movie) => {
     setPlaylists((prev) =>
-      prev.map((playlist) => {
-        if (playlist.id === playlistId) {
-          const isDuplicate = playlist.shows.some((s) => s.id === show.id);
-          if (isDuplicate) return playlist;
-
-          const standardizedShow = {
-            id: show.id,
-            type: "tv",
-            title: show.title || "Untitled Show",
-            poster_path: show.poster_path || null,
-            release_date: show.release_date || "N/A",
-            vote_average: show.vote_average || 0,
-            original_language: show.original_language || "N/A",
-            genre_ids: show.genre_ids || [],
-            overview: show.overview || "",
-            backdrop_path: show.backdrop_path || null,
-          };
-
-          return {
-            ...playlist,
-            shows: [...playlist.shows, standardizedShow],
-            image:
-              playlist.image ||
-              (show.poster_path &&
-                `https://image.tmdb.org/t/p/w500${show.poster_path}`),
-          };
-        }
-        return playlist;
-      })
+      prev.map((playlist) =>
+        playlist.id === playlistId
+          ? {
+              ...playlist,
+              movies: [...playlist.movies, movie],
+              image: playlist.image || `https://image.tmdb.org/t/p/original${movie.poster_path || "default.jpg"}`,
+            }
+          : playlist
+      )
     );
   };
 
-  const addMovieToPlaylist = (playlistId, movie) => {
-    console.log("Adding movie to playlist:", movie); // Debugging incoming data
+  const addShowToPlaylist = (playlistId, show) => {
     setPlaylists((prev) =>
-      prev.map((playlist) => {
-        if (playlist.id === playlistId) {
-          const isDuplicate = playlist.movies.some((m) => m.id === movie.id);
-          if (isDuplicate) return playlist;
-
-          const standardizedMovie = {
-            id: movie.id,
-            type: "movie",
-            title: movie.title || "Untitled Movie",
-            poster_path: movie.poster_path || null,
-            release_date: movie.release_date || "N/A",
-            vote_average: movie.vote_average || 0,
-            original_language: movie.original_language || "N/A",
-            genre_ids: movie.genre_ids || [],
-            overview: movie.overview || "",
-            backdrop_path: movie.backdrop_path || null,
-          };
-
-          return {
-            ...playlist,
-            movies: [...playlist.movies, standardizedMovie],
-            image:
-              playlist.image ||
-              (movie.poster_path &&
-                `https://image.tmdb.org/t/p/w500${movie.poster_path}`),
-          };
-        }
-        return playlist;
-      })
+      prev.map((playlist) =>
+        playlist.id === playlistId
+          ? {
+              ...playlist,
+              shows: [...playlist.shows, show],
+              image: playlist.image || show.image,
+            }
+          : playlist
+      )
     );
   };
 

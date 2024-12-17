@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faStar } from "@fortawesome/free-solid-svg-icons";
-import Footer from "./Footer";
 import "./Header.css";
 import AddToPlaylistPopup from "./AddToPlaylistPopup";
 import "./SearchResult.css"; 
@@ -168,7 +167,6 @@ function SearchResult({ playlists, addMovieToPlaylist, addShowToPlaylist }) {
         />
       )} 
 
-      <Footer className="footer-help" />
     </div>
   );
 }

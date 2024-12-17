@@ -3,18 +3,21 @@ import './playlistCard.css';
 
 
 export default function PlaylistCard({ title, description, image }) {
-  console.log("Title:", title);
-  console.log("Description:", description);
+
   return (
     <div className="playlist-card">
       <div className="img-con">
-        <img src={image} alt={`${title} cover`} className="playlist-image" />
+        <img
+          src={image || "default.jpg"} // Fallback to a default image
+          alt={title || "Playlist Cover"} // Fallback for alt text
+          className="playlist-image"
+        />
       </div>
       <div className="playlist-details">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3>{title || "Untitled Playlist"}</h3>
+        <p>{description || "__________________"}</p>
       </div>
     </div>
-  ); 
+  );
 }
  

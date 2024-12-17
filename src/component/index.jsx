@@ -5,7 +5,6 @@ import TvCard from "./TvCard";
 import NewTrailers from "./newMovies";
 import "./styles.css";
 import Header from "./header";
-import Footer from "./Footer";
 import SlidingMenu from "./SlidingMenu";
 
 function MoviesNow({ playlists, setPlaylists, addMovieToPlaylist }) {
@@ -183,7 +182,6 @@ function MoviesNow({ playlists, setPlaylists, addMovieToPlaylist }) {
                     addMovieToPlaylist={addMovieToPlaylist}
                 />
             </div>
-            <Footer />
         </div>
     );
 }

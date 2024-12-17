@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./component/layout"; // Ensure this includes Header and SlidingMenu
+import Layout from "./component/layout";
 import usePlaylists from "./component/usePlaylist";
 
 const MoviesNow = React.lazy(() => import("./component"));
@@ -17,11 +17,13 @@ function App() {
     setPlaylists,
     addPlaylist,
     addMovieToPlaylist,
-    addShowToPlaylist, // Ensure this is included
+    addShowToPlaylist,
   } = usePlaylists();
 
+  const BASENAME = process.env.PUBLIC_URL || "/";
+
   return (
-    <Router>
+    <Router basename={BASENAME}>
       <Layout>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
@@ -30,23 +32,30 @@ function App() {
               element={
                 <MoviesNow
                   playlists={playlists}
-                  setPlaylists={setPlaylists} // Pass setPlaylists here
+                  setPlaylists={setPlaylists}
                   addMovieToPlaylist={addMovieToPlaylist}
                 />
               }
             />
-              <Route
-                path="/search/:query/:type"
-                element={
-                  <SearchResult
-                    playlists={playlists}
-                    addMovieToPlaylist={addMovieToPlaylist}
-                    addShowToPlaylist={addShowToPlaylist} // Add this
-                  />
-                }
-              />
+            <Route
+              path="/search/:query/:type"
+              element={
+                <SearchResult
+                  playlists={playlists}
+                  addMovieToPlaylist={addMovieToPlaylist}
+                  addShowToPlaylist={addShowToPlaylist}
+                />
+              }
+            />
             <Route path="/about" element={<About />} />
-            <Route path="/playlists" element={<Playlists playlists={playlists} />} />
+            <Route
+              path="/playlists"
+              element={
+                <Playlists
+                  playlists={playlists || []}
+                />
+              }
+            />
             <Route
               path="/playlists/create"
               element={<CreatePlaylist addPlaylist={addPlaylist} />}
@@ -58,14 +67,17 @@ function App() {
                   playlists={playlists}
                   setPlaylists={setPlaylists}
                   addMovieToPlaylist={addMovieToPlaylist}
-                  addShowToPlaylist={addShowToPlaylist} // Ensure this is passed
+                  addShowToPlaylist={addShowToPlaylist}
                 />
               }
             />
             <Route
               path="/details/:type/:id"
               element={
-                <MovieDetails playlists={playlists} addMovieToPlaylist={addMovieToPlaylist} />
+                <MovieDetails
+                  playlists={playlists}
+                  addMovieToPlaylist={addMovieToPlaylist}
+                />
               }
             />
             <Route path="*" element={<div>Page Not Found</div>} />

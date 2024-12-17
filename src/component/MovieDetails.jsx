@@ -3,77 +3,75 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faStar } from "@fortawesome/free-solid-svg-icons";
 import "./movieDetails.css";
+import AddToPlaylistPopup from "./AddToPlaylistPopup";
 
 export default function MovieDetails({ addMovieToPlaylist, playlists }) {
-  const { id, type } = useParams(); // `type` determines if it's a movie or TV show
+  const { id, type } = useParams();
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState([]);
   const [trailerKey, setTrailerKey] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isPopupOpen, setIsPopupOpen] = useState(false); // State for popup visibility
-  const [selectedPlaylistId, setSelectedPlaylistId] = useState(null); // State for selected playlist
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 
   const API_KEY = "808196157aa973f359929571d9321e60";
 
   useEffect(() => {
-    console.log("Fetching details for:", { id, type }); // Log ID and type
-  
     const fetchMovieDetails = async () => {
       try {
         const endpointType = type === "movie" ? "movie" : "tv";
-  
-        // Fetch Details
+
         const detailsRes = await fetch(
           `https://api.themoviedb.org/3/${endpointType}/${id}?api_key=${API_KEY}&language=en-US`
         );
         const detailsData = await detailsRes.json();
-        console.log("Details Data:", detailsData); // Log fetched data
         setMovie(detailsData);
-  
-        // Fetch Credits
+
         const creditsRes = await fetch(
           `https://api.themoviedb.org/3/${endpointType}/${id}/credits?api_key=${API_KEY}`
         );
         const creditsData = await creditsRes.json();
-        console.log("Credits Data:", creditsData); // Log cast data
-        setCast(creditsData.cast.slice(0, 10)); // Set top 10 cast members
-  
-        // Fetch Videos
+        setCast(creditsData.cast.slice(0, 10));
+
         const videosRes = await fetch(
           `https://api.themoviedb.org/3/${endpointType}/${id}/videos?api_key=${API_KEY}&language=en-US`
         );
         const videosData = await videosRes.json();
-        console.log("Videos Data:", videosData); // Log fetched videos data
         const trailer = videosData.results.find((video) => video.type === "Trailer");
-        setTrailerKey(trailer?.key || null); // Set trailer key
-  
-        setIsLoading(false); // Mark loading as complete
+        setTrailerKey(trailer?.key || null);
+
+        setIsLoading(false);
       } catch (error) {
         console.error("Failed to fetch movie details:", error);
-        setIsLoading(false); // Mark loading as complete even if there's an error
+        setIsLoading(false);
       }
     };
-  
-    fetchMovieDetails(); 
+
+    fetchMovieDetails();
   }, [id, type]);
-      
-  const handleAddToPlaylist = () => {
-    if (selectedPlaylistId) {
-      const standardizedItem = {
-        id: movie.id,
-        title: movie.title || movie.name || "Untitled",
-        poster_path: movie.poster_path || null,
-        release_date: movie.release_date || movie.first_air_date || "N/A",
-        vote_average: movie.vote_average || 0,
-      };
-  
-      console.log("Adding item to playlist:", standardizedItem); // Debugging
-      addMovieToPlaylist(selectedPlaylistId, standardizedItem);
-      setIsPopupOpen(false);
-    }
+
+  const handleOpenPopup = (event) => {
+    const buttonRect = event.target.getBoundingClientRect();
+    setPopupPosition({
+      top: buttonRect.bottom + window.scrollY,
+      left: buttonRect.left + window.scrollX,
+    });
+    setIsPopupOpen(true);
   };
-  
+
+  const handleAddToPlaylist = (playlistId) => {
+    const standardizedItem = {
+      id: movie.id,
+      title: movie.title || movie.name || "Untitled",
+      poster_path: movie.poster_path || "default.jpg",
+      release_date: movie.release_date || movie.first_air_date || "N/A",
+      vote_average: movie.vote_average || 0,
+    };
+    addMovieToPlaylist(playlistId, standardizedItem);
+    setIsPopupOpen(false);
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -87,20 +85,39 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
       <button className="back-button" onClick={() => navigate(-1)}>
         <FontAwesomeIcon icon={faArrowLeft} /> Back
       </button>
+      <div className="poster-trailer">
 
-      <div className="movie-banner">
-        <img
-          src={
-            movie.backdrop_path
-              ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
-              : "default.jpg" // Fallback for missing images
-          }
-          alt={movie.title || movie.name || "Image not available"}
-        />
+        <div className="movie-banner">
+          <img
+            src={
+              movie.backdrop_path
+                ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                : "default.jpg"
+            }
+            alt={movie.title || movie.name || "Image not available"}
+          />
+        </div>
+
+        <div className="details-right">
+          <h1 className="movie-title">{movie.title || movie.name || "Title not available"}</h1>
+          <div className="trailer-con">
+            {trailerKey && (
+              <div className="movie-trailer">
+                <iframe
+                  src={`https://www.youtube.com/embed/${trailerKey}`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Trailer"
+                ></iframe>
+              </div>
+            )}
+          </div>
+        </div>
+
       </div>
 
       <div className="movie-info">
-        <h1>{movie.title || movie.name || "Title not available"}</h1>
         <p>{movie.overview || "Description not available."}</p>
 
         <div className="movie-stats">
@@ -109,31 +126,17 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
             {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
           </p>
           <p>
-            Release Date:{" "}
-            {movie.release_date || movie.first_air_date || "N/A"}
+            Release Date: {movie.release_date || movie.first_air_date || "N/A"}
           </p>
         </div>
 
         <button
           className="add-to-playlist"
-          onClick={() => setIsPopupOpen(true)} // Open popup
+          onClick={(event) => handleOpenPopup(event)}
         >
           Add to Playlist
         </button>
       </div>
-
-      {trailerKey && (
-        <div className="movie-trailer">
-          <h2>Trailer</h2>
-          <iframe
-            src={`https://www.youtube.com/embed/${trailerKey}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Trailer"
-          ></iframe>
-        </div>
-      )}
 
       <div className="movie-cast">
         <h2>Cast</h2>
@@ -144,7 +147,7 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
                 src={
                   member.profile_path
                     ? `https://image.tmdb.org/t/p/w200${member.profile_path}`
-                    : "default_profile.jpg" // Fallback for missing cast images
+                    : "default_profile.jpg"
                 }
                 alt={member.name}
               />
@@ -155,30 +158,13 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
         </ul>
       </div>
 
-      {/* Playlist Selection Popup */}
       {isPopupOpen && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <h2>Select Playlist</h2>
-            <ul>
-              {playlists.map((playlist) => (
-                <li key={playlist.id}>
-                  <label>
-                    <input
-                      type="radio"
-                      name="playlist"
-                      value={playlist.id}
-                      onChange={() => setSelectedPlaylistId(playlist.id)}
-                    />
-                    {playlist.name}
-                  </label>
-                </li>
-              ))}
-            </ul>
-            <button onClick={handleAddToPlaylist}>Add</button>
-            <button onClick={() => setIsPopupOpen(false)}>Cancel</button>
-          </div>
-        </div>
+        <AddToPlaylistPopup
+          playlists={playlists}
+          onAdd={handleAddToPlaylist}
+          onClose={() => setIsPopupOpen(false)}
+          position={popupPosition}
+        />
       )}
     </div>
   );

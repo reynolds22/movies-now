@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './header';
 import SlidingMenu from './SlidingMenu'; 
 import "./Header.css";
+import Footer from './Footer';
 
 export default function Layout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
       <Header toggleMenu={toggleMenu} />
       <SlidingMenu isOpen={isMenuOpen} closeMenu={closeMenu} />
       <main>{children}</main> {/* Render page content */}
+      <Footer/>
     </>
   );
 }
