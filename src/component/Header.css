@@ -1,3 +1,4 @@
+
 header {
     background-color: rgba(31, 31, 31, 0.90);
     height: 10vh;
@@ -7,9 +8,7 @@ header {
     z-index: 1000;
     width: 100%;
     top: 0;
-
-    justify-content: space-around;  /* Align items across the available space */
-
+    justify-content: space-between;
 }
  
 .icon-film{
@@ -65,22 +64,6 @@ header span{
     color: #00a6a6;
 }
 
-.sign-in{
-    height: 55%;
-    border-radius: 10px;
-    border: none;
-    width: 7%;
-    background-color: #00a6a6; 
-    font-weight: bolder;
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-.sign-in:hover{
-    cursor: pointer;
-    background-color: gold;
-}
-
 .menu-button{
     margin-left: 85px;
     background-color: rgba(31, 31, 31, 0);
@@ -109,6 +92,7 @@ form {
     flex-direction: column;
     gap: 5px;
     padding: 3px;
+    background-color: white;
 }
 
 .search-togles button {
@@ -128,3 +112,52 @@ form {
 .search-togles .active {
     background-color: gold;  /* Highlight the active button */
 }
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+     
+    .icon-film{
+        margin: 5px 0 0 10px;
+        font-size: 50px;
+    }
+    header input{
+        width: 100%;
+    }
+    .search-button{
+        height: 70%;
+        margin-left: -120px;
+    }
+    header span{
+        display: none;
+    }
+    .menu-button{
+        margin-left: 10px;
+        font-size: 45px;
+        margin-right: 10px;
+    }
+    .search-togles {
+        gap: 7px;
+        padding: 5px;
+        margin-left: 15px;
+    }    
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 1280px) {}
+@media (min-width: 1281px) {}

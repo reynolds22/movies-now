@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Switched to HashRouter
 import Layout from "./component/layout";
 import usePlaylists from "./component/usePlaylist";
 
@@ -20,10 +20,8 @@ function App() {
     addShowToPlaylist,
   } = usePlaylists();
 
-  const BASENAME = process.env.PUBLIC_URL || "/";
-
   return (
-    <Router basename={BASENAME}>
+    <Router> {/* HashRouter does not need a basename */}
       <Layout>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>

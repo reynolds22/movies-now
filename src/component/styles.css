@@ -53,3 +53,27 @@ h1 {
     font-family: "Ubuntu", sans-serif;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 40px;
+        padding: 20px 0px;
+    }
+}
+@media (max-width: 768px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 1280px) {}
+@media (min-width: 1281px) {}
