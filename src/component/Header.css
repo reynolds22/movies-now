@@ -110,7 +110,7 @@ form {
 }
 
 .search-togles .active {
-    background-color: gold;  /* Highlight the active button */
+    background-color: gold; 
 }
 
 
@@ -118,9 +118,8 @@ form {
 
 
 
-
-
-@media (max-width: 600px) {
+/* 600px for test */
+@media (max-width: 480px) {
      
     .icon-film{
         margin: 5px 0 0 10px;
