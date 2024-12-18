@@ -185,5 +185,5 @@ function MoviesNow({ playlists, setPlaylists, addMovieToPlaylist }) {
         </div>
     );
 }
-
+ 
 export default MoviesNow;

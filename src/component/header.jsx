@@ -21,11 +21,11 @@ function Header({ defaultSearchTerm = '', defaultSearchType = 'movie', toggleMen
       <button className="icon-film" onClick={() => navigate('/')}>
         <FontAwesomeIcon icon={faFilm} />
       </button>
-      <span>|</span>
+      <span>|</span> 
 
       <form onSubmit={handleSearch}>
         <input
-          placeholder="Search Films or Shows"
+          placeholder="Search Movies or Shows"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
