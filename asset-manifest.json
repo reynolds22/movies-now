@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/movies-now/static/css/main.f0642c01.css",
-    "main.js": "/movies-now/static/js/main.700a7eed.js",
-    "static/css/295.dc2169b3.chunk.css": "/movies-now/static/css/295.dc2169b3.chunk.css",
-    "static/js/295.638d4893.chunk.js": "/movies-now/static/js/295.638d4893.chunk.js",
+    "main.css": "/movies-now/static/css/main.4802de37.css",
+    "main.js": "/movies-now/static/js/main.47e35903.js",
+    "static/css/295.4a026bef.chunk.css": "/movies-now/static/css/295.4a026bef.chunk.css",
+    "static/js/295.c101ba80.chunk.js": "/movies-now/static/js/295.c101ba80.chunk.js",
     "static/css/976.ad469295.chunk.css": "/movies-now/static/css/976.ad469295.chunk.css",
     "static/js/976.17de6d1b.chunk.js": "/movies-now/static/js/976.17de6d1b.chunk.js",
     "static/css/653.256d7b33.chunk.css": "/movies-now/static/css/653.256d7b33.chunk.css",
@@ -25,10 +25,10 @@
     "static/media/JFHpU0id.jpeg": "/movies-now/static/media/JFHpU0id.4e44af0b0a18b34f84fd.jpeg",
     "static/media/Gladiator.avif": "/movies-now/static/media/Gladiator.09165844b3363c7f034e.avif",
     "index.html": "/movies-now/index.html",
-    "main.f0642c01.css.map": "/movies-now/static/css/main.f0642c01.css.map",
-    "main.700a7eed.js.map": "/movies-now/static/js/main.700a7eed.js.map",
-    "295.dc2169b3.chunk.css.map": "/movies-now/static/css/295.dc2169b3.chunk.css.map",
-    "295.638d4893.chunk.js.map": "/movies-now/static/js/295.638d4893.chunk.js.map",
+    "main.4802de37.css.map": "/movies-now/static/css/main.4802de37.css.map",
+    "main.47e35903.js.map": "/movies-now/static/js/main.47e35903.js.map",
+    "295.4a026bef.chunk.css.map": "/movies-now/static/css/295.4a026bef.chunk.css.map",
+    "295.c101ba80.chunk.js.map": "/movies-now/static/js/295.c101ba80.chunk.js.map",
     "976.ad469295.chunk.css.map": "/movies-now/static/css/976.ad469295.chunk.css.map",
     "976.17de6d1b.chunk.js.map": "/movies-now/static/js/976.17de6d1b.chunk.js.map",
     "653.256d7b33.chunk.css.map": "/movies-now/static/css/653.256d7b33.chunk.css.map",
@@ -44,7 +44,7 @@
     "453.3a29457c.chunk.js.map": "/movies-now/static/js/453.3a29457c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0642c01.css",
-    "static/js/main.700a7eed.js"
+    "static/css/main.4802de37.css",
+    "static/js/main.47e35903.js"
   ]
 }
