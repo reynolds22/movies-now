@@ -66,7 +66,7 @@ function TvCard({ title, category, pages = 1, genreId, keyword, playlists, addSh
           setIsPopupOpen(false);
         }
       };
-            
+             
     return (
         <div className="tv-card-container">
             <h2>{title}</h2>
@@ -87,7 +87,7 @@ function TvCard({ title, category, pages = 1, genreId, keyword, playlists, addSh
                             }}
                         >
                             <FontAwesomeIcon className="list-img" icon={faList} />
-                            <p>Add to Playlist</p>
+                            <p>Add Show</p>
                         </button>
                         <div className="stars">
                             <p className="p1">{show.first_air_date ? show.first_air_date.slice(0, 4) : "N/A"}</p>

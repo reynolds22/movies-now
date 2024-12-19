@@ -139,3 +139,169 @@ body {
   background-color: gold;
   color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  .search-results-container {
+    width: 90%;
+    top: 11vh;
+  }
+  .search-results-container h1 {
+    font-size: 1.5rem;
+  }
+  .film-card {
+    width: 40% !important; 
+    min-height: 0 !important;  
+  }
+  .film-card h3 {
+    font-size: .8rem !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .search-results-container {
+    position: relative;
+    width: 92%;
+    top: 11vh;
+  }
+  .search-results-container h1 {
+    font-size: 1.3rem;
+  }
+  .film-card {
+    width: 26% !important; 
+    min-height: 0 !important;  
+  }
+  .film-card h3 {
+    font-size: .9rem;
+    letter-spacing: 0.8px;
+    margin-bottom: 0 !important;
+  }
+  .p1, .p2 {
+    font-size: .8rem;
+  }
+  .p2 {
+    font-size: .8rem;
+  }
+  .add-movie {
+    width: 90% !important;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: .7rem;
+  }
+  .add-movie .list-img {
+    font-size: .8rem;
+    margin-right: .3rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .search-results-container {
+    top: 11vh;
+  }
+  .search-results-container h1 {
+    font-size: 2rem;
+  }
+  .film-card {
+    width: 20% !important;  
+    min-height: 0;
+  }
+  .film-card h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0 !important;
+  }
+  .p1, .p2 {
+    font-size: .9rem;
+  }
+  .p2 {
+    font-size: .9rem;
+  }
+  .add-movie {
+    width: 90% !important;
+    margin-bottom: .7rem !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+  .search-results-container {
+    top: 7rem;
+  }  
+  .search-results-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .film-card {
+    width: 17%;
+    margin-bottom: 1rem;
+    min-height: 0;  /* Increase the card height */
+  }
+  .film-card img {
+    margin-bottom: .4rem;
+  }
+  .film-card h3 {
+    font-size: 1rem !important;
+    margin-bottom: .5rem;
+  }
+  .p1, .p2 {
+    font-size: .85rem;
+  }
+  .p2 {
+    font-size: .85rem;
+  }
+  .add-movie {
+    width: 80%;
+    margin-bottom: .5rem;
+  }
+} 

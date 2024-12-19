@@ -43,7 +43,7 @@ function MovieCard({ trailerIndex }) {
     }
 
     const selectedTrailer = trailers[trailerIndex];
-
+ 
     return (
         <div className="movie-trailer-card">
             <h2>{`${selectedTrailer.title} Movie Trailer`}</h2>

@@ -73,3 +73,146 @@ footer .the-logo{
 .social-color{
     color: #00a6a6;
 }
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+    footer{
+        padding: 50px 0 50px;
+    }
+    .ze-logo{
+        display: none;
+    }
+    footer button{
+        display: none;
+    }
+    .icons{
+        font-size: 1rem;
+    }     
+    .pro-sources li{
+        font-size: .7rem;
+    }
+    .pro-sources ul{
+        margin-left: 10px;
+    }
+    .pro-sources h3{
+        font-size: 1rem;
+    }
+    .social-color{
+        font-size: 1rem;
+    }    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+    footer{
+        padding: 50px 0 80px;
+    }
+    footer h3, footer button{
+        font-size: 1.25rem;
+        margin-left: 10px;
+    }
+    footer button{
+        font-size: .8rem;
+        margin-right: 10px;
+    }
+    .icons{
+        font-size: 1rem;
+    }
+    .pro-sources li{
+        font-size: .9rem;
+    }
+    .pro-sources h3{
+        font-size: 1rem;
+    }
+    
+    .social-color{
+        font-size: 1rem;
+    }    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    footer{
+        padding: 50px 0 100px;
+        margin-top: 50px;
+    }
+    footer h3, footer button{
+        font-size: 2rem;
+        margin-left: 10px;
+    }
+    footer button{
+        font-size: 1rem;
+    }
+    .icons{
+        font-size: 1.3rem;
+    }
+    .pro-sources li{
+        font-size: 1.1rem;
+    }
+    .pro-sources h3{
+        font-size: 1.5rem;
+    }
+    
+    .social-color{
+        font-size: 1.5rem;
+    }    
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {        
+    footer{
+        padding: 50px 0 100px;
+    }
+    footer button{
+        font-size: 1.25rem;
+    }
+    .ze-logo h3{
+        font-size: 2.75rem;
+    }
+    .icons{
+        font-size: 2rem;
+    }    
+    .pro-sources li{
+        font-size: 1.5rem;
+    }
+    .pro-sources h3, .social-color{
+        font-size: 1.75rem;
+    }
+}

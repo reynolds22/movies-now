@@ -226,6 +226,9 @@ form {
         font-size: 60px;
     }
     form {
-        width: 64%;  /* Adjust width as needed */
+        width: 70%;  /* Adjust width as needed */
     }    
+    .search-togles {
+        padding: 10px 9px 9px;
+    }
 }

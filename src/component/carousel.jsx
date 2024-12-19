@@ -3,7 +3,7 @@ import "./carousel.css";
 import image1 from "./pics/Best-Movie.jpg";
 import image2 from "./pics/Gladiator.avif";
 import image3 from "./pics/new.webp";
-import image4 from "./pics/older.jpeg";
+import image4 from "./pics/older.jpeg"; 
 import image5 from "./pics/JFHpU0id.jpeg";
 import image6 from "./pics/animated.jpg";
 

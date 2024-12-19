@@ -6,7 +6,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer>
+    <footer> 
       <div className="ze-logo">
         <h3>Movies Now</h3>
       </div>

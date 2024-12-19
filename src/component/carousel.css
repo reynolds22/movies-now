@@ -16,27 +16,48 @@
     height: 600px;
   }
   
-.prev .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-.prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 /* 600px for test 480 for real */
-@media (max-width: 480px) {}
-@media (min-width: 481px) and (max-width: 768px) {}
-@media (min-width: 769px) and (max-width: 1024px) {}
-@media (min-width: 1025px) {}
+@media (max-width: 480px) {
+.carousel-item {
+    height: 450px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+.carousel-item {
+    height: 500px;
+  }
+}

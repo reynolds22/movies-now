@@ -48,7 +48,7 @@ export default function MovieCard({
   const handleCardClick = (movie) => {
     navigate(`/details/movie/${movie.id}`);
   };
-
+ 
   const handleOpenPopup = (movie, event) => {
     const buttonRect = event.target.getBoundingClientRect();
     setPopupPosition({

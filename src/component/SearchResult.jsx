@@ -167,7 +167,7 @@ function SearchResult({ playlists, addMovieToPlaylist, addShowToPlaylist }) {
         />
       )} 
 
-    </div>
+    </div> 
   );
 }
 
