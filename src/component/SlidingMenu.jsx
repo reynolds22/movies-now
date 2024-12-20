@@ -22,7 +22,7 @@ export default function SlidingMenu({ isOpen, closeMenu }) {
   const goToHome = () => {
     navigate('/');  // Navigate to the main page (root)
     closeMenu();    // Close the sliding menu after navigation
-  }; 
+  };  
 
   return ( 
     <>

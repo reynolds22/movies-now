@@ -105,10 +105,15 @@ footer .the-logo{
     }
     .pro-sources h3{
         font-size: 1rem;
+        margin-left: .8rem;
     }
     .social-color{
         font-size: 1rem;
-    }    
+        margin-right: .8rem;
+    }
+    hr{
+        font-size: .6rem;
+    }
 }
 
 

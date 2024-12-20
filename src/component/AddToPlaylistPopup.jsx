@@ -20,7 +20,7 @@ export default function AddToPlaylistPopup({ playlists, onAdd, onClose, position
       console.error("onAdd function is missing");
     }
   }}
->
+> 
   {playlist.name}
 </button>
                     </li>
