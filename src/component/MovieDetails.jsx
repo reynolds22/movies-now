@@ -113,7 +113,7 @@ export default function MovieDetails({ addMovieToPlaylist, playlists }) {
               </div>
             )}
           </div>
-        </div>
+        </div> 
 
       </div>
 

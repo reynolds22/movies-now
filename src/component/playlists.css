@@ -20,7 +20,7 @@ body {
     font-weight: bold;
     border: none;
     background-color: #00a6a6;
-    color: white;
+    color: black !important;
     border-radius: 5px;
     cursor: pointer;
   }
@@ -58,10 +58,136 @@ Footer{
   top: 20px;
   left: 20px;
   background-color: #f44336; /* Red background for visibility */
-  color: white;
+  color: black;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 14px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 1000; /* Ensure it appears above other elements */
 }
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  .playlists-page {
+    padding: 0;
+  }
+  .playlist-link {
+    width: 90%; 
+  }
+  .new-playlist-btn {
+    margin-bottom: 2.5rem;
+    padding: .75rem 1.5rem;
+  }
+  h1 {
+    margin: 100px 0 1.75rem;
+  }
+  .popup {
+    position: fixed;
+    top: 5.6rem;
+    left: .3rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .popup {
+  top: 5rem;
+  left: 2.75rem;
+  font-size: 1.25rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .new-playlist-btn {
+    font-size: 1.5rem;
+  }
+  .playlist-link {
+    width: 80%; 
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .popup {
+    top: 5rem;
+    left: 5rem;
+    font-size: 1.25rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+  .new-playlist-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    border: none;
+    background-color: #00a6a6;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .playlist-link {
+    width: 80%; 
+  }
+  h1 {
+  font-size: 4rem;
+  }
+  .popup {
+    top: 5rem;
+    left: 5rem;
+    padding: 15px 30px;
+    font-size: 1.25rem;
+  }  
+} 

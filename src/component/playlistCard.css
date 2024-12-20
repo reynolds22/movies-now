@@ -8,60 +8,159 @@
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
-  height: 170px; /* Fixed height for consistency */
+  height: 170px; 
   display: flex;
-  align-items: center; /* Vertically centers content */
-  background-color: #1c1c1e; /* Background color for contrast */
-  position: relative; /* Ensure child elements position correctly */
-  transition: transform 0.2s, box-shadow 0.2s; /* Hover effect */
+  align-items: center; 
+  background-color: #1c1c1e; 
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .playlist-card:hover {
-  transform: scale(1.02); /* Slight scaling on hover */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  transform: scale(1.02);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); 
   border: 2px solid gold; 
 }
 
 /* Image container */
 .img-con {
-  width: 30%; /* Proportion of the card taken by the image */
+  width: 30%; 
   height: 100%;
-  overflow: hidden; /* Ensures the image doesn't overflow */
+  overflow: hidden; 
 }
-
 .img-con img {
   width: 90%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the space proportionally */
-  border-radius: 10px 0 0 10px; /* Rounds the left corners */
-  transform: scale(1.1); /* Zooms the image out slightly */
+  object-fit: cover; 
+  border-radius: 10px 0 0 10px;
+  transform: scale(1.1);
 }
 
 /* Playlist details */
 .playlist-details {
-  width: 70%; /* Takes up the remaining space */
-  padding: 15px; /* Adds spacing for better visibility */
+  width: 70%;
+  padding: 15px; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers text vertically */
-  text-align: left; /* Aligns text to the left */
-  overflow: hidden; /* Prevents overflowing content */
+  justify-content: center;
+  text-align: left;
+  overflow: hidden;
 }
 
 .playlist-details h3 {
-  font-size: 30px; /* Clear, prominent title */
+  font-size: 30px; 
   margin-bottom: 5px;
   font-weight: bolder;
-  color: gold ; /* Gold title for visual hierarchy */
+  color: gold ;
 }
-
 .playlist-details p {
-  font-size: 15px; /* Subtle, smaller description */
+  font-size: 15px; 
   color: #bbb ; 
-  line-height: 1.4; /* Improves readability */
-  overflow: hidden; /* Prevents overflowing text */
+  line-height: 1.4; 
+  overflow: hidden; 
   text-overflow: ellipsis; /* Adds '...' for truncated text */
   display: -webkit-box; /* Enables multi-line ellipsis */
   -webkit-line-clamp: 2; /* Limits to 2 lines */
   -webkit-box-orient: vertical; /* Required for line clamp */
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  .playlist-card {
+    height: 9rem; 
+  }
+  .img-con {
+    width: 25%; 
+  }
+  .img-con img {
+    width: 100%;
+  }
+  .playlist-details h3 {
+    font-size: 1.5rem; 
+  }
+  .playlist-details p {
+    font-size: .85rem; 
+  }  
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .img-con {
+    width: 33%; 
+  }
+  .img-con img {
+    width: 100%;
+  }
+  .playlist-details {
+    padding: 1rem; 
+  }
+  .playlist-details h3 {
+    font-size: 1.5rem; 
+    margin-bottom: .5rem;
+  }
+  .playlist-details p {
+    font-size: .95rem; 
+  }  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .img-con {
+    width: 35%; 
+  }
+  .img-con img {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+  .playlist-card {
+    height: 12rem; 
+  }
+  .img-con {
+    width: 35%; 
+  }
+  .img-con img {
+    width: 100%;
+  }
+  .playlist-details h3 {
+    font-size: 2.5rem; 
+    margin-bottom: .5rem;
+  }
+  .playlist-details p {
+    font-size: 1rem; 
+  }  
 }

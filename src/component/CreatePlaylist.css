@@ -47,7 +47,7 @@
     background-color: black;
     color: white;
     text-align: center;
-    border: 1px solid gold;
+    border: 1px solid gold !important;
     color: #00a6a6;
 }
 
@@ -64,3 +64,142 @@
 .create-playlist button:hover{
     background-color: gold;
 }
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+    .create-playlist{
+        width: 100%;
+        margin: 6rem auto 0;
+        padding: 0;
+    }
+    .create-playlist h2{
+        font-size: 1.75rem !important;
+    }    
+    .playlist-details input{
+        width: 80%;  
+        font-size: 1rem;
+        margin: 0 !important;
+    }
+    .playlist-details textarea{
+        width: 90%;  
+        font-size: .75rem;
+        margin: 0 !important;
+    }
+    .create-playlist button{
+        width: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+.create-playlist{
+    width: 100%;
+    margin: 6rem auto 0;
+}
+.playlist-details input{
+    width: 65%;  
+    font-size: 1.25rem;
+}
+.playlist-details textarea{
+    height: 7rem;
+    font-size: 1rem;
+}
+.create-playlist button{
+    width: 40%;
+    height: 2.5rem;
+    font-size: 1.5rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+.create-playlist{
+    width: 100%;
+    margin: 7rem auto 0;
+}
+.playlist-details input{
+    width: 65%;  
+    font-size: 1.25rem;
+}
+.playlist-details textarea{
+    width: 85%;  
+    height: 9rem;
+    font-size: 1rem;
+}
+.create-playlist button{
+    width: 35%;
+    height: 2.5rem;
+    font-size: 1.5rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+.create-playlist{
+    width: 100%;
+    margin: 7rem auto 0;
+}
+.playlist-details{
+    margin: 3rem auto;
+}
+.create-playlist h2{
+    font-size: 3rem;
+}
+.playlist-details input{
+    font-size: 2rem;
+    width: 70%;
+}
+.playlist-details textarea{
+    border: none;  
+    width: 90%;  
+    height: 10rem;
+    font-size: 2rem;
+}
+.create-playlist button{
+    width: 30%;
+    height: 3rem;
+    font-size: 2rem;
+}
+} 

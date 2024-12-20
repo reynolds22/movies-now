@@ -12,7 +12,7 @@ body {
 .movie-details {
   margin: 100px auto 0;
   max-width: 1200px;
-  padding: 20px;
+  padding: .5rem;
   background-color: black;
 }
 
@@ -33,18 +33,6 @@ body {
 .back-button:hover {
   background-color: gold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Poster and Trailer Section */
 .poster-trailer {
@@ -123,21 +111,6 @@ body {
 .details-right .movie-trailer iframe:hover{
   border: 3px solid gold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Movie Info Section */
 .movie-info {
@@ -295,3 +268,216 @@ body {
 .popup-close-btn:hover {
   background-color: darkred;
 }
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+.movie-details {
+  margin: 5rem auto 0;
+}
+.poster-trailer {
+  margin-top: 1rem;
+  padding: .9rem;
+  height: 15rem;
+}
+.movie-banner {
+  width: 40%;
+  height: 100%;
+}
+.details-right {
+  height: 100%;
+  width: 55%;
+}
+.details-right .movie-title {
+  font-size: 1.25rem;
+}
+.details-right .trailer-con {
+  height: 50%;
+  width: 100%;
+}
+.movie-info {
+  margin: .75rem auto;
+  font-size: .8rem;
+  width: 100%;
+}
+.movie-stats {
+  font-size: .75rem;
+}
+.add-to-playlist {
+  font-size: .75rem;
+}
+.movie-cast {
+  margin: 1rem auto;
+  width: 100%;
+}
+.movie-cast h2 {
+  margin-top: 0;
+}
+.movie-cast li {
+  width: 7rem;
+}
+.movie-cast p {
+  font-size: .75rem;
+  letter-spacing: 0.5px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+.movie-details {
+  margin: 5rem auto 0;
+  padding: 1rem;
+}
+.back-button {
+  font-size: 14px;
+}
+.poster-trailer {
+  margin-top: 1rem;
+  padding: 1rem;
+  height: 20rem;
+}
+.movie-banner {
+  width: 40%;
+  height: 100%; 
+}
+.details-right {
+  height: 100%; /* Matches the movie poster height */
+}
+.details-right .movie-title {
+  font-size: 2.5rem;
+}
+.movie-info {
+  margin: 1rem auto;
+}
+.movie-cast {
+  margin: 1rem auto;
+  padding: .1rem;
+}
+.movie-cast h2 {
+  font-size: 2.25rem !important;
+  margin-top: 0;
+}
+.movie-cast ul {
+  gap: 1.75rem;
+}
+.movie-cast li {
+  width: 8rem;
+}
+.movie-cast p {
+  font-size: 1rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+.movie-details {
+  margin: 6rem auto 0;
+  padding: 2rem;
+}
+.back-button {
+  font-size: 1.25rem;
+}
+.poster-trailer {
+  margin-top: 1rem;
+  height: 35rem;
+}
+.movie-banner {
+  width: 40%;
+  height: 30rem; /* Fixed height for consistency */
+}
+.details-right {
+  display: flex;
+  flex-direction: column;
+  height: 30rem; /* Matches the movie poster height */
+}
+.details-right .movie-title {
+  font-size: 3.5rem;
+}
+.movie-info {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+.movie-cast h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+.movie-cast ul {
+  gap: 1.5rem;
+}
+.movie-cast li {
+  width: 9rem;
+}
+.movie-cast p {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+.back-button {
+  font-size: 2rem;
+}
+.details-right .movie-title {
+  font-size: 3.5rem;
+}
+.movie-info {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+.add-to-playlist {
+  font-size: 1.5rem;
+}
+.movie-cast h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+.movie-cast ul {
+  gap: 1.5rem;
+}
+.movie-cast li {
+  width: 10rem;
+}
+.movie-cast p {
+  font-size: 1.25rem;
+}
+} 

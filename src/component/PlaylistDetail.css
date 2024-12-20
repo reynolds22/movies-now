@@ -47,6 +47,7 @@ body {
 
 .edit-button:hover{
 background-color: gold;
+color: black;
 }
 
 .playlist-info {
@@ -57,7 +58,7 @@ background-color: gold;
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 1rem;
   border: 2px solid #00a6a6;
 }
 
@@ -168,7 +169,7 @@ background-color: gold;
   cursor: pointer;
   width: 80% !important;
   padding: 5px;
-  color: white;
+  color: black;
   margin-bottom: 10px;
 }
 
@@ -195,7 +196,6 @@ background-color: gold;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color:
 }
 
 .movie-card[draggable="true"] {
@@ -284,3 +284,270 @@ background-color: gold;
   box-shadow: none;
   transform: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+.playlist-detail {
+  margin-top: 3.5rem;
+}
+.back-arrow, .back-button {
+  font-size: 1rem;
+}
+.edit-button{
+  font-size: 1rem;
+}
+.playlist-image {
+  width: 15rem;
+  height: 13rem;
+}
+.playlist-info h2 {
+  font-size: 1.5rem;
+}
+.playlist-movies {
+  gap: .5rem;
+}
+.film-card {
+  width: 25% !important;  
+  min-height: 0 !important;  
+  margin-right: .5rem !important;
+}
+.film-card img {
+  margin-bottom: 0 !important;
+}
+.film-card h3 {
+  font-size: .7rem !important;
+  margin: 0 !important;
+}
+.stars {
+  width: 90% !important;
+}
+.p1, .p2 {
+  font-size: .65rem !important;
+}
+.add-movie {
+  width: 90% !important;
+  font-size: .6rem !important;
+}
+.add-movie .list-img {
+  display: none;
+}
+.delete-confirmation-overlay, .confirmation-popup {
+  position: fixed;
+  top: 10%;
+  left: 5%;
+}
+.info-box {
+  width: 10rem;
+}
+.left-info {
+  left: .1rem; /* Position it to the left of the playlist image */
+}
+.right-info {
+  right: .1rem; 
+}
+.save-img-button {
+  font-size: .7rem;
+}
+.delete-playlist-button {
+  font-size: .7rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .playlist-image {
+    width: 20rem;
+    height: 13rem;
+  }
+  .Popular-movies {
+    margin-left: 15px;
+    gap: 10px;
+  }
+  h2 {
+    font-size: 2rem !important;
+  }
+  .film-card {
+    width: 26% !important;
+    min-height: 0 !important;  
+  }
+  .film-card img {
+    margin-bottom: 0 !important;
+  }
+  .film-card h3 {
+    font-size: .85rem;
+    margin-bottom: 0;
+  }
+  .add-movie {
+    width: 90% !important;
+    font-size: .8rem;
+  }
+  .add-movie .list-img{
+    display: none;
+  }
+  .delete-confirmation-overlay, .confirmation-popup {
+    position: fixed;
+    top: 25%;
+    left: 10%;
+  }
+  .playlist-info {
+    margin-top: 1.5rem;
+  }
+  .info-box {
+    position: absolute; /* Ensure absolute positioning */
+    width: 15rem;
+  }
+  .left-info {
+    left: .5rem; /* Position it to the left of the playlist image */
+    top: 100px; /* Align it vertically */
+  }
+  .right-info {
+    right: .5rem; 
+  }
+  .save-img-button {
+    margin-right: 3rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .back-arrow, .back-button {
+    font-size: 1.5rem;
+  }
+  .edit-button{
+    font-size: 1.5rem;
+  }
+  .playlist-image {
+    width: 25rem;
+    height: 15rem;
+  }
+  .playlist-info p {
+    font-size: 1.2rem;
+  }
+  .film-card {
+    width: 22% !important;  /* Increase the card width */
+    min-height: 10px !important;  /* Increase the card height */
+  }  
+  .film-card img {
+    margin-bottom: 0 !important;
+  }  
+  .film-card h3 {
+    margin-bottom: 5px !important;
+    font-size: .9rem !important;
+  }
+  .add-movie {
+    width: 80% !important;
+    margin-bottom: 1rem !important;
+  }
+  .delete-confirmation-overlay, .confirmation-popup {
+    left: 25%;
+  }
+  .info-box {
+    position: absolute; /* Ensure absolute positioning */
+    width: 15rem;
+  }
+  .left-info {
+    left: 1rem; /* Position it to the left of the playlist image */
+  }
+  .right-info {
+    right: 1rem; /* Position it to the right of the playlist image */
+  }
+  .action-buttons {
+    margin-top: 1.2rem;
+  }
+  .save-img-button {
+    margin-right: 4rem;
+    font-size: 1rem;
+  }
+    .delete-playlist-button {
+      font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1025px) {
+  .back-arrow, .back-button {
+    font-size: 2rem;
+  }
+  .edit-button{
+    font-size: 2rem;
+  }
+  .playlist-image {
+    width: 40rem;
+    height: 20rem;
+    border-radius: 1rem;
+  }
+  .playlist-info h2 {
+    font-size: 2.7rem;
+    margin: 1.5rem 0;
+  }
+  .playlist-info p {
+    font-size: 1.5rem;
+  }
+  .playlist-movies {
+    margin-top: 2rem;
+  }
+  .card-container h2 {
+    font-size: 3rem;
+  }
+  .film-card h3 {
+    font-size: 1.3rem !important;
+  }
+  .p2 {
+    font-size: 1rem;
+  }
+  .add-movie {
+    padding: 7px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  .info-box {
+    width: 15rem;
+    font-size: 1rem;
+  }
+  .action-buttons {
+    margin-top: 1.5rem;
+  }
+  .save-img-button {
+    margin-right: 4rem;
+    font-size: 1.5rem;
+  }  
+  .delete-playlist-button {
+    font-size: 1.5rem;
+  }
+} 

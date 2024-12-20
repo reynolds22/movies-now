@@ -199,7 +199,7 @@ export default function PlaylistDetail({
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  handleOpenPopup(movie, e);
+                  handleOpenPopup(movie, e); 
                 }}
                 className="add-movie"
               >

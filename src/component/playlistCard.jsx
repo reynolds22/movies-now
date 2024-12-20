@@ -17,7 +17,7 @@ export default function PlaylistCard({ title, description, image }) {
         <h3>{title || "Untitled Playlist"}</h3>
         <p>{description || "__________________"}</p>
       </div>
-    </div>
+    </div> 
   );
 }
  
